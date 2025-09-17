@@ -23,7 +23,7 @@ The app helps users manage their income and expenses, track transactions, and ge
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshots.
 
 *(Add your app screenshots here)*
 
