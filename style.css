@@ -9,5 +9,36 @@
     --text-color:#F3F3F3;
     --text-color-dark:#575757;
     --text-color-dark2:#1E1E1E;
-    --logi-color:#2B2B2B;
+    --logo-color:#2B2B2B;
+}
+body{
+    background: var(--background-color);
+}
+
+.head{
+   margin: 20px 25px 25px;
+   
+}
+.logo h3 {
+    color: var(--logo-color);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-list{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+.Signin-btn{
+    appearance: none;
+    color: var(--primary-color);
+    padding : 10px 20px;
+    border: 2px bold;
+    font-size: 5px;
 }
