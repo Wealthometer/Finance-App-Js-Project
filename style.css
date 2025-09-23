@@ -17,7 +17,6 @@ body {
 }
 .main1 {
   padding: 15px 35px;
- 
 }
 
 .head {
@@ -41,7 +40,6 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 10px 35px;
-
 }
 
 .header-list {
@@ -94,12 +92,10 @@ body {
   background-color: var(--primary-color);
   color: white;
 }
-.gmail input{
-    padding: 10px 20px;
-    border: 2px;
-    text-decoration: none;
-    background-color: #008080;
+.gmail input {
+  padding: 10px 20px;
+  border: 2px;
+  text-decoration: none;
 }
-.second-section{
-
+.second-section {
 }
