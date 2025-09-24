@@ -114,6 +114,14 @@ main {
 .second-sec1-sub {
   display: flex;
 }
+.line-sub{
+display: flex;
+}
+
+.flexing-flex {
+  display: flex;
+  /* flex-direction: row; */
+}
 
 .second-sec1 h6{
   color: var(--primary-color);
@@ -143,7 +151,6 @@ font-size: 20px;
   border: none;
 }
 .service-btn .padding {
-  margin-top: 20px;
   padding: var(--padding);
 }
 
