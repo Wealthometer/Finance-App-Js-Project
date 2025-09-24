@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter";
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 :root {
   --background-color: #ffffff;
@@ -11,12 +11,14 @@
   --text-color-dark: #575757;
   --text-color-dark2: #1e1e1e;
   --logo-color: #2b2b2b;
+  --padding: 15px 35px;
+  --rectangle:#E0F8F8;
 }
 body {
   background: var(--background-color);
 }
-.main1 {
-  padding: 15px 35px;
+main {
+  padding: var(--padding);
 }
 
 .head {
@@ -83,9 +85,13 @@ body {
   transform: translateX(130%) scale(2) translateY(20%);
 }
 .company-logo img {
-  width: 400px;
+  width: 1300px;
   height: auto;
+  padding: var(--padding);
+  margin-top: 40px;
+  margin-bottom: 60px;
 }
+
 .gmail .btn3 {
   border: none;
   padding: 10px 20px;
@@ -97,5 +103,63 @@ body {
   border: 2px;
   text-decoration: none;
 }
-.second-section {
+/* .second-sec1{
+  padding: var(--padding);
+} */
+
+.second-sec1 {
+  display: flex;
+}
+
+.second-sec1-sub {
+  display: flex;
+}
+
+.second-sec1 h6{
+  color: var(--primary-color);
+  background:var(--rectangle);
+  width: 100px;
+  height: 30px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.Expertise{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.line{
+  width: 60px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+.surbodinate-section{
+font-style: Bold;
+font-size: 20px;
+}
+
+.service-btn{
+  border: none;
+}
+.service-btn .padding {
+  margin-top: 20px;
+  padding: var(--padding);
+}
+
+.hero-img-down img {
+  width: 250px;
+  height: 250px;
+  background-color: var(--rectangle);
+  border-radius: 35px 4px 35px 4px;
+  /* transform: translateX(340%) scale(2) translateY(-62%); */
+}
+
+/* .hero-img-down2{
+  padding: var(--padding);
+} */
+.hero-img-down2 img{
+  width: 250px;
+  height: 250px;
+  
 }
