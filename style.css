@@ -1,12 +1,5 @@
-/* Updated CSS with semantic class names and better organization */
-
-/* Reset and Base Styles */
+/* Reset & Base Styles */
 * {
-<<<<<<< Updated upstream
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-=======
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,23 +7,23 @@
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-/* CSS Custom Properties */
 :root {
   --background-color: #ffffff;
   --primary-color: #008080;
-  --text-color: #f3f3f3;
+  --text-color-light: #f3f3f3;
   --text-color-dark: #575757;
   --text-color-dark2: #1e1e1e;
   --logo-color: #2b2b2b;
-  --padding: 15px 35px;
   --rectangle: #e0f8f8;
+  --padding: 15px 35px;
 }
 
 body {
   background: var(--background-color);
+  color: var(--text-color-dark2);
 }
 
-/* Header Styles */
+/* ================= HEADER ================= */
 .site-header {
   margin: 20px 25px 25px;
 }
@@ -60,7 +53,6 @@ body {
 .nav-menu {
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
   gap: 20px;
 }
 
@@ -74,13 +66,12 @@ body {
   color: var(--primary-color);
 }
 
-/* Authentication Buttons */
+/* Auth buttons */
 .auth-buttons .btn-signin {
   background: none;
   padding: 10px 20px;
   border: none;
   font-size: 15px;
-  letter-spacing: 1px;
   color: var(--primary-color);
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -92,7 +83,7 @@ body {
 
 .auth-buttons .btn-get-started {
   padding: 10px 20px;
-  color: white;
+  color: #fff;
   background-color: var(--primary-color);
   border: none;
   cursor: pointer;
@@ -103,30 +94,25 @@ body {
   background-color: #006666;
 }
 
-/* Main Content */
-.main-content {
-  padding: var(--padding);
-}
-
-/* Hero Section */
+/* ================= HERO ================= */
 .hero-section {
   display: flex;
   align-items: center;
   gap: 2rem;
+  padding: var(--padding);
 }
 
-.hero-title {
+.hero-content h1 {
   font-size: 86px;
   line-height: 80px;
   color: var(--text-color-dark2);
 }
 
-.highlight-text {
+.highlight {
   color: var(--primary-color);
 }
 
-.hero-description {
-  width: 100%;
+.hero-content p {
   margin-top: 45px;
   margin-bottom: 60px;
   color: var(--text-color-dark);
@@ -142,7 +128,6 @@ body {
 /* Email Signup */
 .email-signup {
   display: flex;
-  gap: 0;
 }
 
 .email-input {
@@ -167,41 +152,26 @@ body {
   background-color: #006666;
 }
 
-/* Trusted Companies Section */
+/* ================= COMPANIES ================= */
 .trusted-companies {
   margin: 40px 0 60px;
+  text-align: center;
 }
 
-.company-logos img {
+.trusted-companies img {
   width: 100%;
   max-width: 1300px;
   height: auto;
   padding: var(--padding);
 }
 
-/* Expertise Section */
+/* ================= EXPERTISE ================= */
 .expertise-section {
   margin: 60px 0;
-}
-
-.expertise-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
+  padding: var(--padding);
 }
 
 .section-badge {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.badge-text {
   color: var(--primary-color);
   background: var(--rectangle);
   width: 140px;
@@ -212,25 +182,22 @@ body {
   font-weight: 600;
   letter-spacing: 1px;
   font-size: 12px;
+  margin-bottom: 1rem;
 }
 
 .decorative-line {
   width: 60px;
   height: 2px;
   background-color: var(--primary-color);
+  margin-bottom: 2rem;
 }
 
 .expertise-content {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.content-wrapper {
-  display: flex;
-  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 4rem;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .expertise-text {
@@ -238,41 +205,20 @@ body {
   max-width: 600px;
 }
 
-.expertise-image {
-  flex-shrink: 0;
-}
-
-.expertise-image img {
-  width: 300px;
-  height: 300px;
-  background-color: var(--rectangle);
-  border-radius: 35px 4px 35px 4px;
-  object-fit: cover;
-}
-
-.section-title {
+.expertise-text h2 {
   font-size: 48px;
   line-height: 1.2;
-  color: var(--text-color-dark2);
   margin-bottom: 1.5rem;
 }
 
-.section-description,
-.commitment-text {
+.expertise-text p {
   color: var(--text-color-dark);
   line-height: 1.6;
   font-size: 16px;
+  margin-bottom: 1rem;
 }
 
-.commitment-text {
-  font-weight: 500;
-}
-
-.cta-button-container {
-  margin-top: 2rem;
-}
-
-.btn-explore-services {
+.btn-explore {
   border: none;
   padding: var(--padding);
   background-color: var(--primary-color);
@@ -284,34 +230,19 @@ body {
   border-radius: 4px;
 }
 
-.btn-explore-services:hover {
+.btn-explore:hover {
   background-color: #006666;
 }
 
-/* Feature Images */
-.feature-images {
-  display: flex;
-  gap: 2rem;
-  margin: 60px 0;
-  flex-wrap: wrap;
-}
-
-.feature-image-primary img {
+.expertise-images img {
   width: 250px;
   height: 250px;
+  object-fit: cover;
   background-color: var(--rectangle);
   border-radius: 35px 4px 35px 4px;
-  object-fit: cover;
 }
 
-.feature-image-secondary img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* Footer */
+/* ================= FOOTER ================= */
 .site-footer {
   padding: 2rem;
   text-align: center;
@@ -335,14 +266,14 @@ body {
   color: var(--primary-color);
 }
 
-/* Responsive Design */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column;
     text-align: center;
   }
 
-  .hero-title {
+  .hero-content h1 {
     font-size: 48px;
     line-height: 1.2;
   }
@@ -357,26 +288,13 @@ body {
     gap: 1rem;
   }
 
-  .feature-images {
-    justify-content: center;
-  }
-
-  .content-wrapper {
+  .expertise-content {
     flex-direction: column;
     gap: 2rem;
   }
 
-  .expertise-image img {
-    width: 250px;
-    height: 250px;
+  .expertise-images img {
+    width: 200px;
+    height: 200px;
   }
->>>>>>> Stashed changes
-}
-:root{
-    --background-color:#FFFFFF;
-    --primary-color: #008080;
-    --text-color:#F3F3F3;
-    --text-color-dark:#575757;
-    --text-color-dark2:#1E1E1E;
-    --logi-color:#2B2B2B;
 }
