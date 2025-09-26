@@ -13,119 +13,111 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Unbounded:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Finance App</title>
+    <title>Prosperix - Finance App</title>
   </head>
 
   <body>
-    <header class="head">
-      <section class="header">
-        <div class="logo">
-          <img src="./logo.svg" alt="" />
-          <h3>Prosperix</h3>
+    <!-- Header -->
+    <header class="site-header">
+      <nav class="main-navigation">
+        <div class="brand-logo">
+          <img src="./logo.svg" alt="Prosperix Logo" />
+          <h3 class="brand-name">Prosperix</h3>
         </div>
 
-        <div class="link">
-          <ul class="header-list"> 
-            <li>Home</li>
-            <li>Service</li>
-            <li>Contact</li>
-            <li>Help</li>
-          </ul>
-        </div>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Service</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#help">Help</a></li>
+        </ul>
 
-        <div class="Singin-btn">
-          <button class="btn1">Sign in</button>
-          <button class="btn2">Get Started</button>
+        <div class="auth-buttons">
+          <button class="btn-signin">Sign in</button>
+          <button class="btn-get-started">Get Started</button>
         </div>
-      </section>
+      </nav>
     </header>
 
+    <!-- Hero Section -->
     <main>
       <section class="hero-section">
-        <div>
+        <div class="hero-content">
           <h1>
             Navigating the <br />
-            <span class="Glo"> Global </span> financial <br />
+            <span class="highlight">Global</span> financial <br />
             Landscape
           </h1>
           <p>
-            Empowering your journey to global financial <br />
-            success through customized and personalized <br />
-            financial Consulting for every client
+            Empowering your journey to global financial success through
+            customized and personalized financial consulting for every client.
           </p>
-          <div class="gmail">
-            <input type="text" placeholder="Your email address" />
-            <button class="btn3">Get Started</button>
+
+          <div class="email-signup">
+            <input
+              type="email"
+              placeholder="Your email address"
+              class="email-input"
+            />
+            <button class="btn-signup">Get Started</button>
           </div>
         </div>
-        <div class="hero-image1">
-          <img src="img/hero image.png" alt="hero image" />
+
+        <div class="hero-image">
+          <img src="img/hero image.png" alt="Financial consulting illustration" />
         </div>
       </section>
 
-      <section>
-        <div class="company-logo">
-          <img src="img/Company logos.png" alt="Company logo" />
-        </div>
+      <!-- Company Logos -->
+      <section class="trusted-companies">
+        <img src="img/Company logos.png" alt="Trusted company logos" />
       </section>
 
-      <section class="second-sec1">
-        <div class="second-sec1-sub">
-          <div class="Expertise">
-            <h6>OUR EXPERTISE</h6>
-            <div class="line"></div>
-          </div>
-          <div class="line-sub">
-            <div class="flexing-flex">
-              <div class="surbodinate-section">
-                <h1>
-                  Tansforming Finances <br />
-                  With Strategic Wealth <br />
-                  Mangement
-                </h1>
-                <p>
-                  Guiding you on your global financial success jounery throught
-                  <br />
-                  customized & personalized financial Consulting service. Acheve
-                  <br />
-                  your goals with data-driven expertise ans secure you financial
-                  <br />
-                  future, successfully navigating the ever-changing finance
-                </p>
-                <br />
-                <p>
-                  We're Committed to Providing You with Expert Guidance, Proven
-                  <br />Strategies & Personalized Approach to Ensure Financial
-                  Prosperity
-                </p>
-              </div>
-            </div>
+      <!-- Expertise Section -->
+      <section class="expertise-section">
+        <h6 class="section-badge">OUR EXPERTISE</h6>
+        <div class="decorative-line"></div>
 
-            <div class="service-btn">
-              <button class="service-btn padding">Explore Services</button>
-            </div>
+        <div class="expertise-content">
+          <div class="expertise-text">
+            <h2>
+              Transforming Finances <br />
+              With Strategic Wealth <br />
+              Management
+            </h2>
+            <p>
+              Guiding you on your global financial success journey through
+              customized & personalized consulting services. Achieve your goals
+              with data-driven expertise and secure your financial future.
+            </p>
+            <p>
+              We're committed to providing you with expert guidance, proven
+              strategies & a personalized approach to ensure financial prosperity.
+            </p>
+            <button class="btn-explore">Explore Services</button>
+          </div>
+
+          <div class="expertise-images">
+            <img src="img/hero image down 1.png" alt="Financial dashboard" />
+            <img src="img/hero image down 2.png" alt="Investment strategy" />
           </div>
         </div>
       </section>
-
-      <div class="hero-img-down">
-        <img src="img/hero image down 1.png" alt="hero image down" />
-      </div>
-
-      <div class="hero-img-down2">
-        <img src="img/hero image down 2.png" alt="hero image down 2" />
-      </div>
     </main>
 
-    <footer>
-      <i class="fa-brands fa-instagram"></i>
-      <i class="fa-brands fa-facebook"></i>
-      <i class="fa-brands fa-twitter"></i>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="social-links">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      </div>
     </footer>
+
+    <script src="app.js"></script>
   </body>
-  <script src="app.js"></script>
 </html>
