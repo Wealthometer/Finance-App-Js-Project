@@ -1,7 +1,376 @@
+/* Updated CSS with semantic class names and better organization */
+
+/* Reset and Base Styles */
 * {
+<<<<<<< Updated upstream
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+=======
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* CSS Custom Properties */
+:root {
+  --background-color: #ffffff;
+  --primary-color: #008080;
+  --text-color: #f3f3f3;
+  --text-color-dark: #575757;
+  --text-color-dark2: #1e1e1e;
+  --logo-color: #2b2b2b;
+  --padding: 15px 35px;
+  --rectangle: #e0f8f8;
+}
+
+body {
+  background: var(--background-color);
+}
+
+/* Header Styles */
+.site-header {
+  margin: 20px 25px 25px;
+}
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 35px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.brand-logo img {
+  width: 30px;
+  height: auto;
+}
+
+.brand-name {
+  color: var(--logo-color);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-color-dark2);
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--primary-color);
+}
+
+/* Authentication Buttons */
+.auth-buttons .btn-signin {
+  background: none;
+  padding: 10px 20px;
+  border: none;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-buttons .btn-signin:hover {
+  background-color: var(--rectangle);
+}
+
+.auth-buttons .btn-get-started {
+  padding: 10px 20px;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-buttons .btn-get-started:hover {
+  background-color: #006666;
+}
+
+/* Main Content */
+.main-content {
+  padding: var(--padding);
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-title {
+  font-size: 86px;
+  line-height: 80px;
+  color: var(--text-color-dark2);
+}
+
+.highlight-text {
+  color: var(--primary-color);
+}
+
+.hero-description {
+  width: 100%;
+  margin-top: 45px;
+  margin-bottom: 60px;
+  color: var(--text-color-dark);
+  line-height: 1.6;
+}
+
+.hero-image img {
+  width: 250px;
+  height: auto;
+  transform: translateX(130%) scale(2) translateY(20%);
+}
+
+/* Email Signup */
+.email-signup {
+  display: flex;
+  gap: 0;
+}
+
+.email-input {
+  padding: 10px 20px;
+  border: 2px solid #e0e0e0;
+  border-right: none;
+  outline: none;
+  flex: 1;
+  max-width: 300px;
+}
+
+.btn-signup {
+  border: none;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-signup:hover {
+  background-color: #006666;
+}
+
+/* Trusted Companies Section */
+.trusted-companies {
+  margin: 40px 0 60px;
+}
+
+.company-logos img {
+  width: 100%;
+  max-width: 1300px;
+  height: auto;
+  padding: var(--padding);
+}
+
+/* Expertise Section */
+.expertise-section {
+  margin: 60px 0;
+}
+
+.expertise-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+}
+
+.section-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge-text {
+  color: var(--primary-color);
+  background: var(--rectangle);
+  width: 140px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.decorative-line {
+  width: 60px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.expertise-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  justify-content: space-between;
+}
+
+.expertise-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.expertise-image {
+  flex-shrink: 0;
+}
+
+.expertise-image img {
+  width: 300px;
+  height: 300px;
+  background-color: var(--rectangle);
+  border-radius: 35px 4px 35px 4px;
+  object-fit: cover;
+}
+
+.section-title {
+  font-size: 48px;
+  line-height: 1.2;
+  color: var(--text-color-dark2);
+  margin-bottom: 1.5rem;
+}
+
+.section-description,
+.commitment-text {
+  color: var(--text-color-dark);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.commitment-text {
+  font-weight: 500;
+}
+
+.cta-button-container {
+  margin-top: 2rem;
+}
+
+.btn-explore-services {
+  border: none;
+  padding: var(--padding);
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.btn-explore-services:hover {
+  background-color: #006666;
+}
+
+/* Feature Images */
+.feature-images {
+  display: flex;
+  gap: 2rem;
+  margin: 60px 0;
+  flex-wrap: wrap;
+}
+
+.feature-image-primary img {
+  width: 250px;
+  height: 250px;
+  background-color: var(--rectangle);
+  border-radius: 35px 4px 35px 4px;
+  object-fit: cover;
+}
+
+.feature-image-secondary img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Footer */
+.site-footer {
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 4rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: var(--text-color-dark);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+
+  .hero-image img {
+    transform: none;
+    width: 200px;
+  }
+
+  .main-navigation {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .feature-images {
+    justify-content: center;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .expertise-image img {
+    width: 250px;
+    height: 250px;
+  }
+>>>>>>> Stashed changes
 }
 :root{
     --background-color:#FFFFFF;
