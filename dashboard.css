@@ -5,7 +5,7 @@
   background: #f5f7fa;
 }
 
-/* Sidebar */
+
 .sidebar {
   background: white;
   border-right: 1px solid var(--border);
@@ -78,14 +78,14 @@
   border-top: 1px solid var(--border);
 }
 
-/* Main Content */
+
 .main-content {
   grid-column: 2;
   padding: 2rem;
   overflow-y: auto;
 }
 
-/* Top Bar */
+
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -155,14 +155,14 @@
   color: var(--text-light);
 }
 
-/* Dashboard Container */
+
 .dashboard-container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-/* Welcome Section */
+
 .welcome-section h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
@@ -172,7 +172,7 @@
   color: var(--text-light);
 }
 
-/* Balance Cards */
+
 .balance-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -239,7 +239,7 @@
   opacity: 0.8;
 }
 
-/* Quick Actions */
+
 .quick-actions {
   background: white;
   padding: 2rem;
