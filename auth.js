@@ -1,4 +1,4 @@
-// Mock user database (in real app, this would be a backend)
+
 const users = JSON.parse(localStorage.getItem("users")) || []
 
 // Login form handler
@@ -10,19 +10,19 @@ if (loginForm) {
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
 
-    // Validate
+    
     if (!email || !password) {
       showError("email", "Please fill in all fields")
       return
     }
 
-    // Check user exists
+    
     const user = users.find((u) => u.email === email && u.password === password)
 
     if (user) {
-      // Store current user session
+      
       localStorage.setItem("currentUser", JSON.stringify(user))
-      // Redirect to dashboard
+      
       window.location.href = "dashboard.html"
     } else {
       showError("email", "Invalid email or password")
@@ -30,7 +30,7 @@ if (loginForm) {
   })
 }
 
-// Signup form handler
+
 const signupForm = document.getElementById("signupForm")
 if (signupForm) {
   signupForm.addEventListener("submit", (e) => {
@@ -44,7 +44,7 @@ if (signupForm) {
     const confirmPassword = document.getElementById("confirmPassword").value
     const terms = document.querySelector('input[name="terms"]').checked
 
-    // Validation
+    
     let isValid = true
 
     if (!firstName) {
@@ -82,13 +82,13 @@ if (signupForm) {
 
     if (!isValid) return
 
-    // Check if user already exists
+    
     if (users.find((u) => u.email === email)) {
       showError("signupEmail", "Email already registered")
       return
     }
 
-    // Create new user
+    
     const newUser = {
       id: Date.now(),
       firstName,
@@ -127,14 +127,14 @@ if (signupForm) {
       loans: [],
     }
 
-    // Save user
+    
     users.push(newUser)
     localStorage.setItem("users", JSON.stringify(users))
 
-    // Auto login
+    
     localStorage.setItem("currentUser", JSON.stringify(newUser))
 
-    // Redirect to dashboard
+    
     window.location.href = "dashboard.html"
   })
 }
@@ -155,7 +155,7 @@ function validateEmail(email) {
   return re.test(email)
 }
 
-// Clear errors on input
+
 document.querySelectorAll(".form-group input").forEach((input) => {
   input.addEventListener("focus", function () {
     this.style.borderColor = ""
