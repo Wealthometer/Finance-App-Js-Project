@@ -141,7 +141,7 @@ function drawLineChart(ctx, data) {
 
   ctx.stroke()
 
-  // Draw points
+  
   ctx.fillStyle = "#1a9b8e"
   data.forEach((item, index) => {
     const x = index * pointSpacing
