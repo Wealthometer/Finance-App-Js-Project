@@ -83,7 +83,7 @@ if (menuToggle) {
   })
 }
 
-// Simple chart rendering (using canvas)
+
 function drawChart(canvasId, data, type) {
   const canvas = document.getElementById(canvasId)
   if (!canvas) return
