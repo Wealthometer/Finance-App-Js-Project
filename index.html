@@ -1,1111 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prosperix - Financial Consulting</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@700&display=swap" rel="stylesheet">
-    <style>
-        /* ============ RESET & BASE ============ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #008080;
-            --primary-dark: #006666;
-            --primary-light: #e0f8f8;
-            --text-dark: #1e1e1e;
-            --text-gray: #575757;
-            --text-light: #f3f3f3;
-            --bg-white: #ffffff;
-            --border-color: #e0e0e0;
-            --accent-green: #00d4aa;
-            --accent-pink: #ff6b6b;
-            --accent-yellow: #ffd93d;
-            --accent-blue: #6bcfff;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-white);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* ============ HEADER ============ */
-        .site-header {
-            background: var(--bg-white);
-            padding: 1.5rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .main-navigation {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--text-dark);
-            text-decoration: none;
-        }
-
-        .brand-logo i {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            flex: 1;
-            justify-content: center;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary);
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .btn-signin {
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-weight: 600;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            transition: background 0.3s ease;
-            border-radius: 4px;
-            text-decoration: none;
-        }
-
-        .btn-signin:hover {
-            background: var(--primary-light);
-        }
-
-        .btn-get-started {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn-get-started:hover {
-            background: var(--primary-dark);
-        }
-
-        /* ============ HERO SECTION ============ */
-        .hero-section {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .hero-content .highlight {
-            color: var(--primary);
-        }
-
-        .hero-content p {
-            font-size: 1rem;
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .email-signup {
-            display: flex;
-            gap: 0;
-            margin-bottom: 2rem;
-        }
-
-        .email-input {
-            flex: 1;
-            max-width: 300px;
-            padding: 0.8rem 1rem;
-            border: 2px solid var(--border-color);
-            border-right: none;
-            outline: none;
-            font-size: 0.95rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .email-input:focus {
-            border-color: var(--primary);
-        }
-
-        .btn-signup {
-            padding: 0.8rem 1.5rem;
-            background: var(--primary);
-            color: white;
-            border: 2px solid var(--primary);
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .btn-signup:hover {
-            background: var(--primary-dark);
-        }
-
-        .hero-image {
-            text-align: center;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-
-        /* ============ TRUSTED COMPANIES ============ */
-        .trusted-companies {
-            max-width: 1400px;
-            margin: 3rem auto;
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .trusted-companies img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* ============ EXPERTISE SECTION ============ */
-        .expertise-section {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
-
-        .decorative-line {
-            width: 60px;
-            height: 3px;
-            background: var(--primary);
-            margin-bottom: 2rem;
-        }
-
-        .expertise-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .expertise-text h2 {
-            font-size: 2.5rem;
-            line-height: 1.3;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .expertise-text p {
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .btn-explore {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: background 0.3s ease;
-        }
-
-        .btn-explore:hover {
-            background: var(--primary-dark);
-        }
-
-        .expertise-images {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
-
-        .expertise-images img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 20px;
-            background: var(--primary-light);
-            padding: 1rem;
-        }
-
-        /* ============ SERVICES SECTION ============ */
-        .services {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .services-image {
-            text-align: center;
-        }
-
-        .services-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-
-        .services-text h4 {
-            color: var(--primary);
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .services-text h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .services-text p {
-            color: var(--text-gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .service-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .tag {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            background: white;
-            color: var(--text-dark);
-        }
-
-        .tag i {
-            font-size: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .tag.financial i { color: var(--accent-green); }
-        .tag.investment i { color: var(--accent-pink); }
-        .tag.estate i { color: var(--accent-blue); }
-        .tag.wealth i { color: var(--accent-yellow); }
-
-        .tag:hover {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,128,128,0.1);
-        }
-
-        .tag:hover i {
-            transform: scale(1.2);
-        }
-
-        .tag.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* ============ TESTIMONIALS SECTION ============ */
-        .testimonials {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .testimonial-header h4 {
-            color: var(--primary);
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .testimonial-header h2 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .testimonial-header p {
-            color: var(--text-gray);
-            max-width: 600px;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .testimonial-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: #f9f9f9;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--primary);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
-        }
-
-        .card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .card-header img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .card-header .name {
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .card-header .role {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-        }
-
-        .card p {
-            color: var(--text-gray);
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
-        .card-quote {
-            font-size: 2rem;
-            color: var(--primary);
-            opacity: 0.3;
-            margin-top: 1rem;
-        }
-
-        /* ============ SERVICES FEATURES ============ */
-        .services-features {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .services-features h2 {
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 12px;
-            background: #f9f9f9;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            background: var(--primary-light);
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        .feature-card.expert .feature-icon { color: var(--primary); }
-        .feature-card.risk .feature-icon { color: var(--accent-pink); }
-        .feature-card.custom .feature-icon { color: var(--accent-green); }
-
-        .feature-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .feature-card p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .feature-card a:hover {
-            color: var(--primary-dark);
-        }
-
-        /* ============ CTA SECTION ============ */
-        .cta-section {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 2rem;
-            margin: 4rem 0;
-            border-radius: 12px;
-        }
-
-        .cta-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .cta-text h3 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-
-        .cta-text h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .cta-form {
-            display: flex;
-            gap: 0;
-            margin-top: 1.5rem;
-        }
-
-        .cta-input {
-            flex: 1;
-            padding: 0.8rem 1rem;
-            border: none;
-            outline: none;
-            font-size: 0.95rem;
-            border-radius: 4px 0 0 4px;
-        }
-
-        .cta-button {
-            padding: 0.8rem 1.5rem;
-            background: white;
-            color: var(--primary);
-            border: none;
-            cursor: pointer;
-            font-weight: 700;
-            border-radius: 0 4px 4px 0;
-            transition: background 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: var(--text-light);
-        }
-
-        .cta-image {
-            text-align: center;
-        }
-
-        .cta-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-
-        /* ============ FOOTER ============ */
-        .site-footer {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: scale(1.2);
-        }
-
-        /* ============ RESPONSIVE ============ */
-        @media (max-width: 768px) {
-            .main-navigation {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-menu {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .hero-section {
-                grid-template-columns: 1fr;
-                padding: 2rem 1rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .email-signup {
-                flex-direction: column;
-            }
-
-            .email-input {
-                max-width: 100%;
-                border-right: 2px solid var(--border-color);
-                border-bottom: none;
-            }
-
-            .btn-signup {
-                border-left: none;
-                border-top: 2px solid var(--primary);
-            }
-
-            .expertise-content {
-                grid-template-columns: 1fr;
-            }
-
-            .services {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-content {
-                grid-template-columns: 1fr;
-            }
-
-            .expertise-text h2,
-            .services-text h2,
-            .cta-text h2 {
-                font-size: 1.5rem;
-            }
-
-            .service-tags {
-                flex-direction: column;
-            }
-
-            .tag {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .testimonial-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .site-header {
-                padding: 1rem;
-            }
-
-            .main-navigation {
-                padding: 0;
-            }
-
-            .hero-content h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero-content p {
-                font-size: 0.9rem;
-            }
-
-            .email-input {
-                font-size: 0.85rem;
-                padding: 0.6rem 0.8rem;
-            }
-
-            .btn-signup {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
-
-            .expertise-text h2,
-            .services-text h2 {
-                font-size: 1.3rem;
-            }
-
-            .cta-text h2 {
-                font-size: 1.3rem;
-            }
-
-            .cta-form {
-                flex-direction: column;
-            }
-
-            .cta-input {
-                border-radius: 4px;
-                border: 2px solid white;
-            }
-
-            .cta-button {
-                border-radius: 4px;
-                border: none;
-                margin-top: 0.5rem;
-            }
-        }
-    </style>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
+  </head>
+  <body>
     <!-- Header -->
     <header class="site-header">
-        <nav class="main-navigation">
-            <a href="#" class="brand-logo">
-                <i class="fas fa-chart-line"></i>
-                Prosperix
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Service</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#help">Help</a></li>
-            </ul>
-            <div class="auth-buttons">
-                <a href="signup.html" class="btn-signin">Sign in</a>
-                <a href="signup.html" class="btn-get-started">Get Started</a>
-            </div>
-        </nav>
+      <nav class="main-navigation">
+        <a href="#" class="brand-logo">
+          <i class="fas fa-chart-line"></i>
+          Prosperix
+        </a>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Service</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#help">Help</a></li>
+        </ul>
+        <div class="auth-buttons">
+          <a href="signup.html" class="btn-signin">Sign in</a>
+          <a href="signup.html" class="btn-get-started">Get Started</a>
+        </div>
+      </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero-section" id="home">
-        <div class="hero-content">
-            <h1>Navigating the <span class="highlight">Global</span> financial landscape</h1>
-            <p>Empowering your journey to global financial success through customized and personalized financial consulting for every client.</p>
-            <div class="email-signup">
-                <input type="email" placeholder="Your email address" class="email-input">
-                <button class="btn-signup">Get Started</button>
-            </div>
+      <div class="hero-content">
+        <h1>
+          Navigating the <span class="highlight">Global</span> financial
+          landscape
+        </h1>
+        <p>
+          Empowering your journey to global financial success through customized
+          and personalized financial consulting for every client.
+        </p>
+        <div class="email-signup">
+          <input
+            type="email"
+            placeholder="Your email address"
+            class="email-input"
+          />
+          <button class="btn-signup">Get Started</button>
         </div>
-        <div class="hero-image">
-            <img src="/placeholder.svg" alt="Financial consulting illustration" style="background: var(--primary-light); min-height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
-        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src="/placeholder.svg"
+          alt="Financial consulting illustration"
+          style="
+            background: var(--primary-light);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+          "
+        />
+      </div>
     </section>
 
     <!-- Trusted Companies -->
     <section class="trusted-companies">
-        <img src="/placeholder.svg" alt="Trusted company logos" style="background: var(--primary-light); min-height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+      <img
+        src="/placeholder.svg"
+        alt="Trusted company logos"
+        style="
+          background: var(--primary-light);
+          min-height: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px;
+        "
+      />
     </section>
 
     <!-- Expertise Section -->
     <section class="expertise-section">
-        <span class="section-badge">OUR EXPERTISE</span>
-        <div class="decorative-line"></div>
-        <div class="expertise-content">
-            <div class="expertise-text">
-                <h2>Transforming Finances With Strategic Wealth Management</h2>
-                <p>Guiding you on your global financial success journey through customized & personalized consulting services. Achieve your goals with data-driven expertise and secure your financial future.</p>
-                <p>We're committed to providing you with expert guidance, proven strategies & a personalized approach to ensure financial prosperity.</p>
-                <button class="btn-explore">Explore Services</button>
-            </div>
-            <div class="expertise-images">
-                <img src="/placeholder.svg" alt="Financial dashboard" style="background: var(--primary-light); min-height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 20px;">
-            </div>
+      <span class="section-badge">OUR EXPERTISE</span>
+      <div class="decorative-line"></div>
+      <div class="expertise-content">
+        <div class="expertise-text">
+          <h2>Transforming Finances With Strategic Wealth Management</h2>
+          <p>
+            Guiding you on your global financial success journey through
+            customized & personalized consulting services. Achieve your goals
+            with data-driven expertise and secure your financial future.
+          </p>
+          <p>
+            We're committed to providing you with expert guidance, proven
+            strategies & a personalized approach to ensure financial prosperity.
+          </p>
+          <button class="btn-explore">Explore Services</button>
         </div>
+        <div class="expertise-images">
+          <img
+            src="/placeholder.svg"
+            alt="Financial dashboard"
+            style="
+              background: var(--primary-light);
+              min-height: 300px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 20px;
+            "
+          />
+        </div>
+      </div>
     </section>
 
     <!-- Services Section -->
     <section class="services" id="services">
-        <div class="services-image">
-            <img src="/placeholder.svg" alt="Service illustration" style="background: var(--primary-light); min-height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
+      <div class="services-image">
+        <img
+          src="/placeholder.svg"
+          alt="Service illustration"
+          style="
+            background: var(--primary-light);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+          "
+        />
+      </div>
+      <div class="services-text">
+        <h4>Our Services</h4>
+        <h2>Our Services Can Help You Grow Your Investments and Wealth</h2>
+        <p>
+          Embark on a journey to unlock a world of financial opportunities, grow
+          your investment with our comprehensive and expert advice.
+        </p>
+        <div class="service-tags">
+          <div class="tag financial" data-tag="financial">
+            <i class="fas fa-chart-line"></i>
+            Financial Planning
+          </div>
+          <div class="tag investment" data-tag="investment">
+            <i class="fas fa-coins"></i>
+            Investment Advisory
+          </div>
+          <div class="tag estate" data-tag="estate">
+            <i class="fas fa-home"></i>
+            Estate Planning
+          </div>
+          <div class="tag wealth" data-tag="wealth">
+            <i class="fas fa-briefcase"></i>
+            Wealth Management
+          </div>
         </div>
-        <div class="services-text">
-            <h4>Our Services</h4>
-            <h2>Our Services Can Help You Grow Your Investments and Wealth</h2>
-            <p>Embark on a journey to unlock a world of financial opportunities, grow your investment with our comprehensive and expert advice.</p>
-            <div class="service-tags">
-                <div class="tag financial" data-tag="financial">
-                    <i class="fas fa-chart-line"></i>
-                    Financial Planning
-                </div>
-                <div class="tag investment" data-tag="investment">
-                    <i class="fas fa-coins"></i>
-                    Investment Advisory
-                </div>
-                <div class="tag estate" data-tag="estate">
-                    <i class="fas fa-home"></i>
-                    Estate Planning
-                </div>
-                <div class="tag wealth" data-tag="wealth">
-                    <i class="fas fa-briefcase"></i>
-                    Wealth Management
-                </div>
-            </div>
-            <button class="btn-explore">Explore Services</button>
-        </div>
+        <button class="btn-explore">Explore Services</button>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials">
-        <div class="testimonial-header">
-            <h4>Testimonials</h4>
-            <h2>What Our Customers Say</h2>
-            <p>Discover the success stories and testimonials of clients who have benefited from our expertise and personalized financial guidance.</p>
+      <div class="testimonial-header">
+        <h4>Testimonials</h4>
+        <h2>What Our Customers Say</h2>
+        <p>
+          Discover the success stories and testimonials of clients who have
+          benefited from our expertise and personalized financial guidance.
+        </p>
+      </div>
+      <div class="testimonial-cards">
+        <div class="card">
+          <div class="card-header">
+            <img
+              src="/placeholder.svg"
+              alt="Grace Turner"
+              style="
+                background: var(--primary-light);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+              "
+            />
+            <div>
+              <div class="name">Grace Turner</div>
+              <div class="role">Investor</div>
+            </div>
+          </div>
+          <p>
+            Financial expertise has made a significant impact on our financial
+            stability, allowing us to better serve our community.
+          </p>
+          <div class="card-quote"><i class="fas fa-quote-left"></i></div>
         </div>
-        <div class="testimonial-cards">
-            <div class="card">
-                <div class="card-header">
-                    <img src="/placeholder.svg" alt="Grace Turner" style="background: var(--primary-light); width: 50px; height: 50px; border-radius: 50%;">
-                    <div>
-                        <div class="name">Grace Turner</div>
-                        <div class="role">Investor</div>
-                    </div>
-                </div>
-                <p>Financial expertise has made a significant impact on our financial stability, allowing us to better serve our community.</p>
-                <div class="card-quote"><i class="fas fa-quote-left"></i></div>
-            </div>
 
-            <div class="card" style="background: var(--primary); color: white;">
-                <div class="card-header">
-                    <img src="/placeholder.svg" alt="Linda Carter" style="background: rgba(255,255,255,0.2); width: 50px; height: 50px; border-radius: 50%;">
-                    <div>
-                        <div class="name" style="color: white;">Linda Carter</div>
-                        <div class="role" style="color: rgba(255,255,255,0.8);">Analyst</div>
-                    </div>
-                </div>
-                <p>Financial planning and investment advice I received from this team completely transformed my future. I couldn't be happier with the results.</p>
-                <div class="card-quote" style="color: rgba(255,255,255,0.3);"><i class="fas fa-quote-left"></i></div>
+        <div class="card" style="background: var(--primary); color: white">
+          <div class="card-header">
+            <img
+              src="/placeholder.svg"
+              alt="Linda Carter"
+              style="
+                background: rgba(255, 255, 255, 0.2);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+              "
+            />
+            <div>
+              <div class="name" style="color: white">Linda Carter</div>
+              <div class="role" style="color: rgba(255, 255, 255, 0.8)">
+                Analyst
+              </div>
             </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <img src="/placeholder.svg" alt="Alex Walker" style="background: var(--primary-light); width: 50px; height: 50px; border-radius: 50%;">
-                    <div>
-                        <div class="name">Alex Walker</div>
-                        <div class="role">Entrepreneur</div>
-                    </div>
-                </div>
-                <p>Estate planning is crucial, and they made the process stress-free. I can rest assured knowing my family's future is secure.</p>
-                <div class="card-quote"><i class="fas fa-quote-left"></i></div>
-            </div>
+          </div>
+          <p>
+            Financial planning and investment advice I received from this team
+            completely transformed my future. I couldn't be happier with the
+            results.
+          </p>
+          <div class="card-quote" style="color: rgba(255, 255, 255, 0.3)">
+            <i class="fas fa-quote-left"></i>
+          </div>
         </div>
+
+        <div class="card">
+          <div class="card-header">
+            <img
+              src="/placeholder.svg"
+              alt="Alex Walker"
+              style="
+                background: var(--primary-light);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+              "
+            />
+            <div>
+              <div class="name">Alex Walker</div>
+              <div class="role">Entrepreneur</div>
+            </div>
+          </div>
+          <p>
+            Estate planning is crucial, and they made the process stress-free. I
+            can rest assured knowing my family's future is secure.
+          </p>
+          <div class="card-quote"><i class="fas fa-quote-left"></i></div>
+        </div>
+      </div>
     </section>
 
     <!-- Services Features -->
     <section class="services-features">
-        <h2>Our Team Provides Valuable Services at Any Time in Any Situation</h2>
-        <div class="features-grid">
-            <div class="feature-card expert">
-                <div class="feature-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3>Expert Guidance</h3>
-                <p>Very professional and experienced team providing financial advice and strategic planning aligned with your unique goals.</p>
-                <a href="#">Read more <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="feature-card risk">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Risk Management</h3>
-                <p>Comprehensive strategies to mitigate financial risks, ensuring the safeguard of assets and overall stability.</p>
-                <a href="#">Read more <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="feature-card custom">
-                <div class="feature-icon">
-                    <i class="fas fa-cogs"></i>
-                </div>
-                <h3>Customized Solutions</h3>
-                <p>Tailored financial solutions built to address your unique financial challenges and opportunities.</p>
-                <a href="#">Read more <i class="fas fa-arrow-right"></i></a>
-            </div>
+      <h2>Our Team Provides Valuable Services at Any Time in Any Situation</h2>
+      <div class="features-grid">
+        <div class="feature-card expert">
+          <div class="feature-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Expert Guidance</h3>
+          <p>
+            Very professional and experienced team providing financial advice
+            and strategic planning aligned with your unique goals.
+          </p>
+          <a href="#">Read more <i class="fas fa-arrow-right"></i></a>
         </div>
+
+        <div class="feature-card risk">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Risk Management</h3>
+          <p>
+            Comprehensive strategies to mitigate financial risks, ensuring the
+            safeguard of assets and overall stability.
+          </p>
+          <a href="#">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card custom">
+          <div class="feature-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>Customized Solutions</h3>
+          <p>
+            Tailored financial solutions built to address your unique financial
+            challenges and opportunities.
+          </p>
+          <a href="#">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <div class="cta-content">
-            <div class="cta-text">
-                <h3>Start Now</h3>
-                <h2>Get Start For Free No Credit Card Required</h2>
-                <p>Where to contact our team and book a call to discuss your financial goals and how we can help you achieve them.</p>
-                <div class="cta-form">
-                    <input type="email" placeholder="Email address" class="cta-input">
-                    <button class="cta-button">Get Started</button>
-                </div>
-            </div>
-            <div class="cta-image">
-                <img src="/placeholder.svg" alt="Team meeting" style="background: rgba(255,255,255,0.1); min-height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
-            </div>
+      <div class="cta-content">
+        <div class="cta-text">
+          <h3>Start Now</h3>
+          <h2>Get Start For Free No Credit Card Required</h2>
+          <p>
+            Where to contact our team and book a call to discuss your financial
+            goals and how we can help you achieve them.
+          </p>
+          <div class="cta-form">
+            <input type="email" placeholder="Email address" class="cta-input" />
+            <button class="cta-button">Get Started</button>
+          </div>
         </div>
+        <div class="cta-image">
+          <img
+            src="/placeholder.svg"
+            alt="Team meeting"
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              min-height: 300px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 12px;
+            "
+          />
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Prosperix</h4>
-                <p>Our expert financial consultants provide comprehensive financial consulting services to help you achieve your financial goals and build a brighter financial future.</p>
-                <div class="social-links" style="margin-top: 1rem;">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h4>Our Services</h4>
-                <ul>
-                    <li><a href="#">Insurance Planning</a></li>
-                    <li><a href="#">Estate Planning</a></li>
-                    <li><a href="#">Tax Optimization</a></li>
-                    <li><a href="#">Debt Management</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Explore More</h4>
-                <ul>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Site map</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Contact Details</h4>
-                <ul>
-                    <li><a href="mailto:contact@prosperix.com">contact@prosperix.com</a></li>
-                    <li><a href="tel:+1-800-123-4567">+1 (800) 123-4567</a></li>
-                </ul>
-            </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Prosperix</h4>
+          <p>
+            Our expert financial consultants provide comprehensive financial
+            consulting services to help you achieve your financial goals and
+            build a brighter financial future.
+          </p>
+          <div class="social-links" style="margin-top: 1rem">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2025 Prosperix. All rights reserved.</p>
-            <div>
-                <a href="#" style="margin-right: 1rem;">Terms & Conditions</a>
-                <a href="#">Privacy Policy</a>
-            </div>
+        <div class="footer-section">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Insurance Planning</a></li>
+            <li><a href="#">Estate Planning</a></li>
+            <li><a href="#">Tax Optimization</a></li>
+            <li><a href="#">Debt Management</a></li>
+          </ul>
         </div>
+
+        <div class="footer-section">
+          <h4>Explore More</h4>
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Site map</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Details</h4>
+          <ul>
+            <li>
+              <a href="mailto:contact@prosperix.com">contact@prosperix.com</a>
+            </li>
+            <li><a href="tel:+1-800-123-4567">+1 (800) 123-4567</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Prosperix. All rights reserved.</p>
+        <div>
+          <a href="#" style="margin-right: 1rem">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
     </footer>
 
-    <script>
-        // Tag selection functionality
-        const tags = document.querySelectorAll('.tag');
-        tags.forEach(tag => {
-            tag.addEventListener('click', function() {
-                tags.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Mobile menu toggle (if needed)
-        const navMenu = document.querySelector('.nav-menu');
-        const authButtons = document.querySelector('.auth-buttons');
-        
-        // Add active state to current nav item
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
