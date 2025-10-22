@@ -1,170 +1,201 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Investments - Prosperix Banking</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="dashboard.css">
-</head>
-<body class="dashboard-page">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body class="dashboard-page">
     <aside class="sidebar">
-        <div class="sidebar-header">
-            <h1 class="logo">Prosperix</h1>
-            <button class="menu-toggle" id="menuToggle">☰</button>
-        </div>
-        <nav class="sidebar-nav">
-            <a href="dashboard.html" class="nav-item"><span class="icon">📊</span><span>Dashboard</span></a>
-            <a href="accounts.html" class="nav-item"><span class="icon">💳</span><span>Accounts</span></a>
-            <a href="transfers.html" class="nav-item"><span class="icon">💸</span><span>Transfers</span></a>
-            <a href="investments.html" class="nav-item active"><span class="icon">📈</span><span>Investments</span></a>
-            <a href="loans.html" class="nav-item"><span class="icon">🏦</span><span>Loans</span></a>
-            <a href="cards.html" class="nav-item"><span class="icon">🎫</span><span>Cards</span></a>
-            <a href="settings.html" class="nav-item"><span class="icon">⚙️</span><span>Settings</span></a>
-        </nav>
-        <div class="sidebar-footer">
-            <button id="logoutBtn" class="btn btn-secondary">Logout</button>
-        </div>
+      <div class="sidebar-header">
+        <h1 class="logo">Prosperix</h1>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item"
+          ><span class="icon">📊</span><span>Dashboard</span></a
+        >
+        <a href="accounts.html" class="nav-item"
+          ><span class="icon">💳</span><span>Accounts</span></a
+        >
+        <a href="transfers.html" class="nav-item"
+          ><span class="icon">💸</span><span>Transfers</span></a
+        >
+        <a href="investments.html" class="nav-item active"
+          ><span class="icon">📈</span><span>Investments</span></a
+        >
+        <a href="loans.html" class="nav-item"
+          ><span class="icon">🏦</span><span>Loans</span></a
+        >
+        <a href="cards.html" class="nav-item"
+          ><span class="icon">🎫</span><span>Cards</span></a
+        >
+        <a href="settings.html" class="nav-item"
+          ><span class="icon">⚙️</span><span>Settings</span></a
+        >
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+      </div>
     </aside>
 
     <main class="main-content">
-        <div class="top-bar">
-            <div class="search-bar"><input type="text" placeholder="Search investments..."></div>
-            <div class="top-bar-right">
-                <button class="notification-btn">🔔</button>
-                <div class="user-profile">
-                    <div class="avatar">JD</div>
-                    <div class="user-info">
-                        <p class="user-name">John Doe</p>
-                        <p class="user-email">john@example.com</p>
-                    </div>
-                </div>
+      <div class="top-bar">
+        <div class="search-bar">
+          <input type="text" placeholder="Search investments..." />
+        </div>
+        <div class="top-bar-right">
+          <button class="notification-btn">🔔</button>
+          <div class="user-profile">
+            <div class="avatar">JD</div>
+            <div class="user-info">
+              <p class="user-name">John Doe</p>
+              <p class="user-email">john@example.com</p>
             </div>
+          </div>
         </div>
+      </div>
 
-        <div class="dashboard-container">
-            <section class="welcome-section">
-                <h1>Investment Portfolio</h1>
-                <p>Grow your wealth with our investment options</p>
-            </section>
+      <div class="dashboard-container">
+        <section class="welcome-section">
+          <h1>Investment Portfolio</h1>
+          <p>Grow your wealth with our investment options</p>
+        </section>
 
-            <section class="balance-cards">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3>Portfolio Value</h3>
-                        <span class="card-icon">💰</span>
-                    </div>
-                    <p class="card-amount" id="portfolioValue">$5,000.00</p>
-                    <p class="card-subtitle">Total invested</p>
-                </div>
-                <div class="card card-secondary">
-                    <div class="card-header">
-                        <h3>Total Gain/Loss</h3>
-                        <span class="card-icon">📊</span>
-                    </div>
-                    <p class="card-amount" id="gainLoss">+$250.00</p>
-                    <p class="card-subtitle">+5.0%</p>
-                </div>
-                <div class="card card-accent">
-                    <div class="card-header">
-                        <h3>Dividend Income</h3>
-                        <span class="card-icon">💵</span>
-                    </div>
-                    <p class="card-amount" id="dividendIncome">$125.00</p>
-                    <p class="card-subtitle">This year</p>
-                </div>
-                <div class="card card-warning">
-                    <div class="card-header">
-                        <h3>Holdings</h3>
-                        <span class="card-icon">📈</span>
-                    </div>
-                    <p class="card-amount" id="holdingsCount">5</p>
-                    <p class="card-subtitle">Active investments</p>
-                </div>
-            </section>
+        <section class="balance-cards">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3>Portfolio Value</h3>
+              <span class="card-icon">💰</span>
+            </div>
+            <p class="card-amount" id="portfolioValue">$5,000.00</p>
+            <p class="card-subtitle">Total invested</p>
+          </div>
+          <div class="card card-secondary">
+            <div class="card-header">
+              <h3>Total Gain/Loss</h3>
+              <span class="card-icon">📊</span>
+            </div>
+            <p class="card-amount" id="gainLoss">+$250.00</p>
+            <p class="card-subtitle">+5.0%</p>
+          </div>
+          <div class="card card-accent">
+            <div class="card-header">
+              <h3>Dividend Income</h3>
+              <span class="card-icon">💵</span>
+            </div>
+            <p class="card-amount" id="dividendIncome">$125.00</p>
+            <p class="card-subtitle">This year</p>
+          </div>
+          <div class="card card-warning">
+            <div class="card-header">
+              <h3>Holdings</h3>
+              <span class="card-icon">📈</span>
+            </div>
+            <p class="card-amount" id="holdingsCount">5</p>
+            <p class="card-subtitle">Active investments</p>
+          </div>
+        </section>
 
-            <section class="quick-actions">
-                <h2>Investment Actions</h2>
-                <div class="actions-grid">
-                    <button class="action-btn" id="buyBtn">
-                        <span class="action-icon">📈</span>
-                        <span>Buy Investment</span>
-                    </button>
-                    <button class="action-btn" id="sellBtn">
-                        <span class="action-icon">📉</span>
-                        <span>Sell Investment</span>
-                    </button>
-                    <button class="action-btn">
-                        <span class="action-icon">🎯</span>
-                        <span>View Analysis</span>
-                    </button>
-                    <button class="action-btn">
-                        <span class="action-icon">📊</span>
-                        <span>Rebalance</span>
-                    </button>
-                </div>
-            </section>
+        <section class="quick-actions">
+          <h2>Investment Actions</h2>
+          <div class="actions-grid">
+            <button class="action-btn" id="buyBtn">
+              <span class="action-icon">📈</span>
+              <span>Buy Investment</span>
+            </button>
+            <button class="action-btn" id="sellBtn">
+              <span class="action-icon">📉</span>
+              <span>Sell Investment</span>
+            </button>
+            <button class="action-btn">
+              <span class="action-icon">🎯</span>
+              <span>View Analysis</span>
+            </button>
+            <button class="action-btn">
+              <span class="action-icon">📊</span>
+              <span>Rebalance</span>
+            </button>
+          </div>
+        </section>
 
-            <section class="recent-transactions">
-                <h2>Your Holdings</h2>
-                <div class="transactions-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Symbol</th>
-                                <th>Name</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Value</th>
-                                <th>Gain/Loss</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="holdingsBody">
-                            <tr>
-                                <td>AAPL</td>
-                                <td>Apple Inc.</td>
-                                <td>10</td>
-                                <td>$150.00</td>
-                                <td>$1,500.00</td>
-                                <td class="amount positive">+$100.00</td>
-                                <td><button class="btn-small">Sell</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
+        <section class="recent-transactions">
+          <h2>Your Holdings</h2>
+          <div class="transactions-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Name</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                  <th>Value</th>
+                  <th>Gain/Loss</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="holdingsBody">
+                <tr>
+                  <td>AAPL</td>
+                  <td>Apple Inc.</td>
+                  <td>10</td>
+                  <td>$150.00</td>
+                  <td>$1,500.00</td>
+                  <td class="amount positive">+$100.00</td>
+                  <td><button class="btn-small">Sell</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </main>
 
     <div id="buyModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Buy Investment</h2>
-                <button class="close-btn" id="closeBuy">&times;</button>
-            </div>
-            <form id="buyForm" class="modal-form">
-                <div class="form-group">
-                    <label for="symbol">Stock Symbol</label>
-                    <input type="text" id="symbol" required placeholder="e.g., AAPL">
-                </div>
-                <div class="form-group">
-                    <label for="quantity">Quantity</label>
-                    <input type="number" id="quantity" required placeholder="1" min="1">
-                </div>
-                <div class="form-group">
-                    <label for="price">Price per Share</label>
-                    <input type="number" id="price" required placeholder="0.00" min="0" step="0.01">
-                </div>
-                <div class="modal-buttons">
-                    <button type="button" class="btn btn-secondary" id="cancelBuy">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Buy</button>
-                </div>
-            </form>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Buy Investment</h2>
+          <button class="close-btn" id="closeBuy">&times;</button>
         </div>
+        <form id="buyForm" class="modal-form">
+          <div class="form-group">
+            <label for="symbol">Stock Symbol</label>
+            <input type="text" id="symbol" required placeholder="e.g., AAPL" />
+          </div>
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input
+              type="number"
+              id="quantity"
+              required
+              placeholder="1"
+              min="1"
+            />
+          </div>
+          <div class="form-group">
+            <label for="price">Price per Share</label>
+            <input
+              type="number"
+              id="price"
+              required
+              placeholder="0.00"
+              min="0"
+              step="0.01"
+            />
+          </div>
+          <div class="modal-buttons">
+            <button type="button" class="btn btn-secondary" id="cancelBuy">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">Buy</button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <script src="script.js"></script>
     <script src="investments.js"></script>
-</body>
+  </body>
 </html>
