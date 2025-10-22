@@ -73,7 +73,7 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
   window.location.href = "index.html"
 })
 
-// Mobile menu toggle
+
 const menuToggle = document.getElementById("menuToggle")
 const sidebar = document.querySelector(".sidebar")
 
