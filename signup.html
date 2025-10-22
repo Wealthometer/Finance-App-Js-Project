@@ -1,81 +1,128 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up - Prosperix</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="auth.css">
-</head>
-<body class="auth-page">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body class="auth-page">
     <div class="auth-container">
-        <div class="auth-card">
-            <div class="auth-header">
-                <h1 class="logo">Prosperix</h1>
-                <h2>Create Your Account</h2>
-                <p>Join thousands of users managing their finances with Prosperix</p>
-            </div>
-
-            <form id="signupForm" class="auth-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" name="firstName" required placeholder="John">
-                        <span class="error-message"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" required placeholder="Doe">
-                        <span class="error-message"></span>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="signupEmail">Email Address</label>
-                    <input type="email" id="signupEmail" name="email" required placeholder="you@example.com">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 000-0000">
-                    <span class="error-message"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="signupPassword">Password</label>
-                    <input type="password" id="signupPassword" name="password" required placeholder="••••••••">
-                    <span class="error-message"></span>
-                    <small>At least 8 characters with uppercase, lowercase, and numbers</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="••••••••">
-                    <span class="error-message"></span>
-                </div>
-
-                <label class="checkbox">
-                    <input type="checkbox" name="terms" required>
-                    <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></span>
-                </label>
-
-                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
-            </form>
-
-            <div class="auth-footer">
-                <p>Already have an account? <a href="login.html">Sign in here</a></p>
-            </div>
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1 class="logo">Prosperix</h1>
+          <h2>Create Your Account</h2>
+          <p>Join thousands of users managing their finances with Prosperix</p>
         </div>
 
-        <div class="auth-image">
-            <div class="image-content">
-                <h3>Start Your Journey</h3>
-                <p>Get started with Prosperix and take control of your financial future today.</p>
+        <form id="signupForm" class="auth-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+                placeholder="John"
+              />
+              <span class="error-message"></span>
             </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                placeholder="Doe"
+              />
+              <span class="error-message"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="signupEmail">Email Address</label>
+            <input
+              type="email"
+              id="signupEmail"
+              name="email"
+              required
+              placeholder="you@example.com"
+            />
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              placeholder="+1 (555) 000-0000"
+            />
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <input
+              type="password"
+              id="signupPassword"
+              name="password"
+              required
+              placeholder="••••••••"
+            />
+            <span class="error-message"></span>
+            <small
+              >At least 8 characters with uppercase, lowercase, and
+              numbers</small
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+              placeholder="••••••••"
+            />
+            <span class="error-message"></span>
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" name="terms" required />
+            <span
+              >I agree to the <a href="#">Terms & Conditions</a> and
+              <a href="#">Privacy Policy</a></span
+            >
+          </label>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            Create Account
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p>Already have an account? <a href="login.html">Sign in here</a></p>
         </div>
+      </div>
+
+      <div class="auth-image">
+        <div class="image-content">
+          <h3>Start Your Journey</h3>
+          <p>
+            Get started with Prosperix and take control of your financial future
+            today.
+          </p>
+        </div>
+      </div>
     </div>
 
     <script src="auth.js"></script>
-</body>
+  </body>
 </html>
