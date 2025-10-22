@@ -10,31 +10,28 @@ function checkAuth() {
 const currentUser = checkAuth();
 
 if (currentUser) {
-  document.getElementById(
-    "userName"
-  ).textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+  document.getElementById("userName").textContent =
+    `${currentUser.firstName} ${currentUser.lastName}`;
   document.getElementById("userEmail").textContent = currentUser.email;
   document.getElementById("firstName").textContent = currentUser.firstName;
 
   const totalBalance = currentUser.accounts.reduce(
     (sum, acc) => sum + acc.balance,
-    0
+    0,
   );
   const investmentTotal = currentUser.investments.reduce(
     (sum, inv) => sum + inv.amount,
-    0
+    0,
   );
 
-  document.getElementById(
-    "totalBalance"
-  ).textContent = `$${totalBalance.toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-  })}`;
-  document.getElementById(
-    "investmentTotal"
-  ).textContent = `$${investmentTotal.toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-  })}`;
+  document.getElementById("totalBalance").textContent =
+    `$${totalBalance.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+    })}`;
+  document.getElementById("investmentTotal").textContent =
+    `$${investmentTotal.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+    })}`;
 
   const monthlySpending = currentUser.transactions
     .filter((t) => {
@@ -48,11 +45,10 @@ if (currentUser) {
     })
     .reduce((sum, t) => sum + t.amount, 0);
 
-  document.getElementById(
-    "monthlySpending"
-  ).textContent = `$${monthlySpending.toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-  })}`;
+  document.getElementById("monthlySpending").textContent =
+    `$${monthlySpending.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+    })}`;
 
   const transactionsBody = document.getElementById("transactionsBody");
   if (currentUser.transactions && currentUser.transactions.length > 0) {
@@ -71,13 +67,13 @@ if (currentUser) {
         <td>${new Date(t.date).toLocaleDateString()}</td>
         <td class="amount ${t.type === "income" ? "positive" : "negative"}">
           ${t.type === "income" ? "+" : "-"}$${t.amount.toLocaleString(
-          "en-US",
-          { minimumFractionDigits: 2 }
-        )}
+            "en-US",
+            { minimumFractionDigits: 2 },
+          )}
         </td>
         <td><span class="status completed">Completed</span></td>
       </tr>
-    `
+    `,
       )
       .join("");
   }
@@ -173,7 +169,7 @@ drawChart(
     { label: "Entertainment", value: 200, color: "#6bcf7f" },
     { label: "Utilities", value: 150, color: "#95a5a6" },
   ],
-  "bar"
+  "bar",
 );
 
 drawChart(
@@ -185,5 +181,5 @@ drawChart(
     { value: 19800 },
     { value: 20000 },
   ],
-  "line"
+  "line",
 );
