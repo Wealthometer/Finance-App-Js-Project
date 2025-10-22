@@ -1,3 +1,4 @@
+// Check if user is logged in
 function checkAuth() {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (!currentUser) {
@@ -7,32 +8,45 @@ function checkAuth() {
   return currentUser;
 }
 
+// Initialize dashboard
 const currentUser = checkAuth();
 
 if (currentUser) {
-  document.getElementById("userName").textContent =
-    `${currentUser.firstName} ${currentUser.lastName}`;
+  const userInitials = (
+    currentUser.firstName.charAt(0) + currentUser.lastName.charAt(0)
+  ).toUpperCase();
+  document.querySelectorAll(".avatar").forEach((avatar) => {
+    avatar.textContent = userInitials;
+  });
+
+  document.getElementById(
+    "userName"
+  ).textContent = `${currentUser.firstName} ${currentUser.lastName}`;
   document.getElementById("userEmail").textContent = currentUser.email;
   document.getElementById("firstName").textContent = currentUser.firstName;
 
+  // Calculate totals
   const totalBalance = currentUser.accounts.reduce(
     (sum, acc) => sum + acc.balance,
-    0,
+    0
   );
   const investmentTotal = currentUser.investments.reduce(
     (sum, inv) => sum + inv.amount,
-    0,
+    0
   );
 
-  document.getElementById("totalBalance").textContent =
-    `$${totalBalance.toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-    })}`;
-  document.getElementById("investmentTotal").textContent =
-    `$${investmentTotal.toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-    })}`;
+  document.getElementById(
+    "totalBalance"
+  ).textContent = `$${totalBalance.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+  })}`;
+  document.getElementById(
+    "investmentTotal"
+  ).textContent = `$${investmentTotal.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+  })}`;
 
+  // Calculate monthly spending
   const monthlySpending = currentUser.transactions
     .filter((t) => {
       const transDate = new Date(t.date);
@@ -45,10 +59,11 @@ if (currentUser) {
     })
     .reduce((sum, t) => sum + t.amount, 0);
 
-  document.getElementById("monthlySpending").textContent =
-    `$${monthlySpending.toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-    })}`;
+  document.getElementById(
+    "monthlySpending"
+  ).textContent = `$${monthlySpending.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+  })}`;
 
   const transactionsBody = document.getElementById("transactionsBody");
   if (currentUser.transactions && currentUser.transactions.length > 0) {
@@ -67,23 +82,25 @@ if (currentUser) {
         <td>${new Date(t.date).toLocaleDateString()}</td>
         <td class="amount ${t.type === "income" ? "positive" : "negative"}">
           ${t.type === "income" ? "+" : "-"}$${t.amount.toLocaleString(
-            "en-US",
-            { minimumFractionDigits: 2 },
-          )}
+          "en-US",
+          { minimumFractionDigits: 2 }
+        )}
         </td>
         <td><span class="status completed">Completed</span></td>
       </tr>
-    `,
+    `
       )
       .join("");
   }
 }
 
+// Logout functionality
 document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.removeItem("currentUser");
   window.location.href = "index.html";
 });
 
+// Mobile menu toggle
 const menuToggle = document.getElementById("menuToggle");
 const sidebar = document.querySelector(".sidebar");
 
@@ -93,6 +110,7 @@ if (menuToggle) {
   });
 }
 
+// Simple chart rendering (using canvas)
 function drawChart(canvasId, data, type) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
@@ -150,6 +168,7 @@ function drawLineChart(ctx, data) {
 
   ctx.stroke();
 
+  // Draw points
   ctx.fillStyle = "#1a9b8e";
   data.forEach((item, index) => {
     const x = index * pointSpacing;
@@ -160,6 +179,7 @@ function drawLineChart(ctx, data) {
   });
 }
 
+// Draw sample charts
 drawChart(
   "spendingChart",
   [
@@ -169,7 +189,7 @@ drawChart(
     { label: "Entertainment", value: 200, color: "#6bcf7f" },
     { label: "Utilities", value: 150, color: "#95a5a6" },
   ],
-  "bar",
+  "bar"
 );
 
 drawChart(
@@ -181,5 +201,5 @@ drawChart(
     { value: 19800 },
     { value: 20000 },
   ],
-  "line",
+  "line"
 );
