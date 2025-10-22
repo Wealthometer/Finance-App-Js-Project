@@ -1,4 +1,3 @@
-
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -9,7 +8,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-
 document.querySelectorAll(".btn-primary").forEach((btn) => {
   btn.addEventListener("click", function (e) {
     if (this.textContent.includes("Get Started")) {
@@ -19,12 +17,10 @@ document.querySelectorAll(".btn-primary").forEach((btn) => {
   });
 });
 
-
 function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
-
 
 document.querySelectorAll('.form-input[type="email"]').forEach((input) => {
   input.addEventListener("blur", function () {
