@@ -40,7 +40,7 @@ if (currentUser) {
   document.getElementById("monthlySpending").textContent =
     `$${monthlySpending.toLocaleString("en-US", { minimumFractionDigits: 2 })}`
 
-  // Populate transactions
+  
   const transactionsBody = document.getElementById("transactionsBody")
   if (currentUser.transactions && currentUser.transactions.length > 0) {
     transactionsBody.innerHTML = currentUser.transactions
@@ -67,7 +67,7 @@ if (currentUser) {
   }
 }
 
-// Logout functionality
+
 document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.removeItem("currentUser")
   window.location.href = "index.html"
