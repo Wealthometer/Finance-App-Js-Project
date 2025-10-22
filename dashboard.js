@@ -17,7 +17,7 @@ if (currentUser) {
   document.getElementById("userEmail").textContent = currentUser.email
   document.getElementById("firstName").textContent = currentUser.firstName
 
-  // Calculate totals
+  
   const totalBalance = currentUser.accounts.reduce((sum, acc) => sum + acc.balance, 0)
   const investmentTotal = currentUser.investments.reduce((sum, inv) => sum + inv.amount, 0)
 
