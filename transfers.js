@@ -1,10 +1,10 @@
-// Check authentication
+
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 if (!currentUser) {
   window.location.href = "login.html";
 }
 
-// Populate accounts
+
 function populateFromAccounts() {
   const select = document.getElementById("fromAccount");
   select.innerHTML = '<option value="">Select Account</option>';
@@ -36,10 +36,10 @@ function populateToAccounts() {
   }
 }
 
-// Set today's date as default
+
 document.getElementById("transferDate").valueAsDate = new Date();
 
-// Event listeners
+
 document
   .getElementById("toType")
   .addEventListener("change", populateToAccounts);
@@ -49,7 +49,7 @@ document.getElementById("recurring").addEventListener("change", (e) => {
     : "none";
 });
 
-// Transfer form submission
+
 const transferForm = document.getElementById("transferForm");
 const confirmModal = document.getElementById("confirmModal");
 
@@ -74,7 +74,7 @@ transferForm.addEventListener("submit", (e) => {
     return;
   }
 
-  // Show confirmation
+  
   document.getElementById("confirmFrom").textContent = fromAccount.name;
   document.getElementById("confirmTo").textContent = toAccount.name;
   document.getElementById("confirmAmount").textContent =
@@ -85,7 +85,7 @@ transferForm.addEventListener("submit", (e) => {
 
   confirmModal.style.display = "block";
 
-  // Store transfer data for confirmation
+  
   window.pendingTransfer = {
     fromAccountId,
     toAccountId,
@@ -95,7 +95,7 @@ transferForm.addEventListener("submit", (e) => {
   };
 });
 
-// Confirm transfer
+
 document.getElementById("confirmTransfer").addEventListener("click", () => {
   const transfer = window.pendingTransfer;
   const fromAccount = currentUser.accounts.find(
@@ -105,11 +105,11 @@ document.getElementById("confirmTransfer").addEventListener("click", () => {
     (a) => a.id === transfer.toAccountId,
   );
 
-  // Update balances
+  
   fromAccount.balance -= transfer.amount;
   toAccount.balance += transfer.amount;
 
-  // Add to transactions
+  
   if (!currentUser.transactions) {
     currentUser.transactions = [];
   }
@@ -132,7 +132,7 @@ document.getElementById("confirmTransfer").addEventListener("click", () => {
   location.reload();
 });
 
-// Modal controls
+
 document.getElementById("closeConfirm").addEventListener("click", () => {
   confirmModal.style.display = "none";
 });
@@ -141,13 +141,13 @@ document.getElementById("cancelConfirm").addEventListener("click", () => {
   confirmModal.style.display = "none";
 });
 
-// Logout
+
 document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.removeItem("currentUser");
   window.location.href = "index.html";
 });
 
-// Mobile menu
+
 const menuToggle = document.getElementById("menuToggle");
 const sidebar = document.querySelector(".sidebar");
 
@@ -155,6 +155,6 @@ menuToggle.addEventListener("click", () => {
   sidebar.classList.toggle("active");
 });
 
-// Initialize
+
 populateFromAccounts();
 populateToAccounts();
