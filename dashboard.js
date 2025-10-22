@@ -8,7 +8,7 @@ function checkAuth() {
   return currentUser
 }
 
-// Initialize dashboard
+
 const currentUser = checkAuth()
 
 if (currentUser) {
