@@ -1,10 +1,10 @@
-// Check authentication
+
 const currentUser = JSON.parse(localStorage.getItem("currentUser"))
 if (!currentUser) {
   window.location.href = "login.html"
 }
 
-// Populate accounts
+
 function populateAccounts() {
   const accountsGrid = document.getElementById("accountsGrid")
   accountsGrid.innerHTML = currentUser.accounts
@@ -23,7 +23,7 @@ function populateAccounts() {
     .join("")
 }
 
-// Select account
+
 function selectAccount(accountId) {
   const account = currentUser.accounts.find((a) => a.id === accountId)
   if (account) {
@@ -35,7 +35,7 @@ function selectAccount(accountId) {
   }
 }
 
-// Modal functionality
+
 const modal = document.getElementById("newAccountModal")
 const newAccountBtn = document.getElementById("newAccountBtn")
 const closeModal = document.getElementById("closeModal")
@@ -60,7 +60,7 @@ window.addEventListener("click", (e) => {
   }
 })
 
-// Create new account
+
 newAccountForm.addEventListener("submit", (e) => {
   e.preventDefault()
 
@@ -86,13 +86,13 @@ newAccountForm.addEventListener("submit", (e) => {
   newAccountForm.reset()
 })
 
-// Logout
+
 document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.removeItem("currentUser")
   window.location.href = "index.html"
 })
 
-// Mobile menu
+
 const menuToggle = document.getElementById("menuToggle")
 const sidebar = document.querySelector(".sidebar")
 
@@ -100,6 +100,6 @@ menuToggle.addEventListener("click", () => {
   sidebar.classList.toggle("active")
 })
 
-// Initialize
+
 populateAccounts()
 selectAccount(currentUser.accounts[0].id)
