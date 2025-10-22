@@ -1,248 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accounts - Prosperix Banking</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="dashboard.css" />
-  </head>
-  <body class="dashboard-page">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-page">
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
-      <div class="sidebar-header">
-        <h1 class="logo">Prosperix</h1>
-        <button class="menu-toggle" id="menuToggle">☰</button>
-      </div>
+        <div class="sidebar-header">
+            <h1 class="logo">Prosperix</h1>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
 
-      <nav class="sidebar-nav">
-        <a href="dashboard.html" class="nav-item">
-          <span class="icon">📊</span>
-          <span>Dashboard</span>
-        </a>
-        <a href="accounts.html" class="nav-item active">
-          <span class="icon">💳</span>
-          <span>Accounts</span>
-        </a>
-        <a href="transfers.html" class="nav-item">
-          <span class="icon">💸</span>
-          <span>Transfers</span>
-        </a>
-        <a href="investments.html" class="nav-item">
-          <span class="icon">📈</span>
-          <span>Investments</span>
-        </a>
-        <a href="loans.html" class="nav-item">
-          <span class="icon">🏦</span>
-          <span>Loans</span>
-        </a>
-        <a href="cards.html" class="nav-item">
-          <span class="icon">🎫</span>
-          <span>Cards</span>
-        </a>
-        <a href="settings.html" class="nav-item">
-          <span class="icon">⚙️</span>
-          <span>Settings</span>
-        </a>
-      </nav>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="accounts.html" class="nav-item active">
+                <span class="icon">💳</span>
+                <span>Accounts</span>
+            </a>
+            <a href="transfers.html" class="nav-item">
+                <span class="icon">💸</span>
+                <span>Transfers</span>
+            </a>
+            <a href="investments.html" class="nav-item">
+                <span class="icon">📈</span>
+                <span>Investments</span>
+            </a>
+            <a href="loans.html" class="nav-item">
+                <span class="icon">🏦</span>
+                <span>Loans</span>
+            </a>
+            <a href="cards.html" class="nav-item">
+                <span class="icon">🎫</span>
+                <span>Cards</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <span class="icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
 
-      <div class="sidebar-footer">
-        <button id="logoutBtn" class="btn btn-secondary">Logout</button>
-      </div>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+        </div>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
-      <!-- Top Bar -->
-      <div class="top-bar">
-        <div class="search-bar">
-          <input type="text" placeholder="Search accounts..." />
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="search-bar">
+                <input type="text" placeholder="Search accounts...">
+            </div>
+            <div class="top-bar-right">
+                <button class="notification-btn">🔔</button>
+                <div class="user-profile">
+                    <div class="avatar">JD</div>
+                    <div class="user-info">
+                        <p class="user-name" id="userName">John Doe</p>
+                        <p class="user-email" id="userEmail">john@example.com</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="top-bar-right">
-          <button class="notification-btn">🔔</button>
-          <div class="user-profile">
-            <div class="avatar">JD</div>
-            <div class="user-info">
-              <p class="user-name">John Doe</p>
-              <p class="user-email">john@example.com</p>
-            </div>
-          </div>
+
+        <!-- Page Content -->
+        <div class="dashboard-container">
+            <section class="welcome-section">
+                <h1>Your Accounts</h1>
+                <p>Manage all your bank accounts in one place</p>
+            </section>
+
+            <!-- Accounts Grid -->
+            <section class="accounts-section">
+                <div class="section-header-inline">
+                    <h2>Active Accounts</h2>
+                    <button class="btn btn-primary" id="newAccountBtn">+ New Account</button>
+                </div>
+
+                <div class="accounts-grid" id="accountsGrid">
+                    <!-- Accounts will be populated here -->
+                </div>
+            </section>
+
+            <!-- Account Details -->
+            <section class="account-details">
+                <h2>Account Details</h2>
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <h3>Account Information</h3>
+                        <div class="detail-item">
+                            <span class="label">Account Holder</span>
+                            <span class="value" id="accountHolder">John Doe</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Account Number</span>
+                            <span class="value" id="accountNumber">****1234</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Account Type</span>
+                            <span class="value" id="accountType">Checking</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Status</span>
+                            <span class="value status-active">Active</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3>Account Statistics</h3>
+                        <div class="detail-item">
+                            <span class="label">Current Balance</span>
+                            <span class="value" id="currentBalance">$5,000.00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Monthly Deposits</span>
+                            <span class="value" id="monthlyDeposits">$0.00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Monthly Withdrawals</span>
+                            <span class="value" id="monthlyWithdrawals">$0.00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Interest Earned</span>
+                            <span class="value">$0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3>Account Actions</h3>
+                        <button class="btn btn-secondary btn-small" onclick="document.getElementById('accountsGrid').scrollIntoView({behavior: 'smooth'})">View All Accounts</button>
+                        <button class="btn btn-secondary btn-small" onclick="printReceipt(selectedAccountId)">📄 Print Statement</button>
+                        <button class="btn btn-secondary btn-small">Download Statement</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Transactions for Account -->
+            <section class="recent-transactions">
+                <h2>Recent Transactions</h2>
+                <div class="transactions-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="accountTransactionsBody">
+                            <tr>
+                                <td colspan="5" style="text-align: center; color: var(--text-light);">No transactions yet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
         </div>
-      </div>
-
-      <!-- Page Content -->
-      <div class="dashboard-container">
-        <section class="welcome-section">
-          <h1>Your Accounts</h1>
-          <p>Manage all your bank accounts in one place</p>
-        </section>
-
-        <!-- Accounts Grid -->
-        <section class="accounts-section">
-          <div class="section-header-inline">
-            <h2>Active Accounts</h2>
-            <button class="btn btn-primary" id="newAccountBtn">
-              + New Account
-            </button>
-          </div>
-
-          <div class="accounts-grid" id="accountsGrid">
-            <!-- Accounts will be populated here -->
-          </div>
-        </section>
-
-        <!-- Account Details -->
-        <section class="account-details">
-          <h2>Account Details</h2>
-          <div class="details-grid">
-            <div class="detail-card">
-              <h3>Account Information</h3>
-              <div class="detail-item">
-                <span class="label">Account Holder</span>
-                <span class="value" id="accountHolder">John Doe</span>
-              </div>
-              <div class="detail-item">
-                <span class="label">Account Number</span>
-                <span class="value" id="accountNumber">****1234</span>
-              </div>
-              <div class="detail-item">
-                <span class="label">Account Type</span>
-                <span class="value" id="accountType">Checking</span>
-              </div>
-              <div class="detail-item">
-                <span class="label">Status</span>
-                <span class="value status-active">Active</span>
-              </div>
-            </div>
-
-            <div class="detail-card">
-              <h3>Account Statistics</h3>
-              <div class="detail-item">
-                <span class="label">Current Balance</span>
-                <span class="value" id="currentBalance">$5,000.00</span>
-              </div>
-              <div class="detail-item">
-                <span class="label">Monthly Deposits</span>
-                <span class="value">$3,500.00</span>
-              </div>
-              <div class="detail-item">
-                <span class="label">Monthly Withdrawals</span>
-                <span class="value">$2,450.00</span>
-              </div>
-              <div class="detail-item">
-                <span class="label">Interest Earned</span>
-                <span class="value">$12.50</span>
-              </div>
-            </div>
-
-            <div class="detail-card">
-              <h3>Account Settings</h3>
-              <button class="btn btn-secondary btn-small">Edit Account</button>
-              <button class="btn btn-secondary btn-small">
-                View Statements
-              </button>
-              <button class="btn btn-secondary btn-small">Close Account</button>
-            </div>
-          </div>
-        </section>
-
-        <!-- Recent Transactions for Account -->
-        <section class="recent-transactions">
-          <h2>Recent Transactions</h2>
-          <div class="transactions-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Description</th>
-                  <th>Type</th>
-                  <th>Amount</th>
-                  <th>Balance</th>
-                </tr>
-              </thead>
-              <tbody id="accountTransactionsBody">
-                <tr>
-                  <td>Dec 15, 2024</td>
-                  <td>Amazon Purchase</td>
-                  <td>Debit</td>
-                  <td class="amount negative">-$89.99</td>
-                  <td>$4,910.01</td>
-                </tr>
-                <tr>
-                  <td>Dec 14, 2024</td>
-                  <td>Salary Deposit</td>
-                  <td>Credit</td>
-                  <td class="amount positive">+$3,500.00</td>
-                  <td>$5,000.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-      </div>
     </main>
 
     <!-- New Account Modal -->
     <div id="newAccountModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Create New Account</h2>
-          <button class="close-btn" id="closeModal">&times;</button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Account</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="newAccountForm" class="modal-form">
+                <div class="form-group">
+                    <label for="accountName">Account Name</label>
+                    <input type="text" id="accountName" required placeholder="e.g., Savings Account">
+                </div>
+
+                <div class="form-group">
+                    <label for="accountType">Account Type</label>
+                    <select id="accountType" required>
+                        <option value="">Select Account Type</option>
+                        <option value="Checking">Checking</option>
+                        <option value="Savings">Savings</option>
+                        <option value="Money Market">Money Market</option>
+                        <option value="CD">Certificate of Deposit (CD)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="initialDeposit">Initial Deposit</label>
+                    <input type="number" id="initialDeposit" required placeholder="0.00" min="0" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox">
+                        <input type="checkbox" id="linkedCard">
+                        <span>Link a debit card to this account</span>
+                    </label>
+                </div>
+
+                <div class="modal-buttons">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Account</button>
+                </div>
+            </form>
         </div>
-        <form id="newAccountForm" class="modal-form">
-          <div class="form-group">
-            <label for="accountName">Account Name</label>
-            <input
-              type="text"
-              id="accountName"
-              required
-              placeholder="e.g., Savings Account"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="accountType">Account Type</label>
-            <select id="accountType" required>
-              <option value="">Select Account Type</option>
-              <option value="Checking">Checking</option>
-              <option value="Savings">Savings</option>
-              <option value="Money Market">Money Market</option>
-              <option value="CD">Certificate of Deposit (CD)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="initialDeposit">Initial Deposit</label>
-            <input
-              type="number"
-              id="initialDeposit"
-              required
-              placeholder="0.00"
-              min="0"
-              step="0.01"
-            />
-          </div>
-
-          <div class="form-group">
-            <label class="checkbox">
-              <input type="checkbox" id="linkedCard" />
-              <span>Link a debit card to this account</span>
-            </label>
-          </div>
-
-          <div class="modal-buttons">
-            <button type="button" class="btn btn-secondary" id="cancelBtn">
-              Cancel
-            </button>
-            <button type="submit" class="btn btn-primary">
-              Create Account
-            </button>
-          </div>
-        </form>
-      </div>
     </div>
 
     <script src="script.js"></script>
     <script src="accounts.js"></script>
-  </body>
+</body>
 </html>
