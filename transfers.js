@@ -1,9 +1,7 @@
-
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 if (!currentUser) {
   window.location.href = "login.html";
 }
-
 
 function populateFromAccounts() {
   const select = document.getElementById("fromAccount");
@@ -11,7 +9,10 @@ function populateFromAccounts() {
   currentUser.accounts.forEach((account) => {
     const option = document.createElement("option");
     option.value = account.id;
-    option.textContent = `${account.name} - $${account.balance.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
+    option.textContent = `${account.name} - $${account.balance.toLocaleString(
+      "en-US",
+      { minimumFractionDigits: 2 }
+    )}`;
     select.appendChild(option);
   });
 }
@@ -25,7 +26,10 @@ function populateToAccounts() {
     currentUser.accounts.forEach((account) => {
       const option = document.createElement("option");
       option.value = account.id;
-      option.textContent = `${account.name} - $${account.balance.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
+      option.textContent = `${account.name} - $${account.balance.toLocaleString(
+        "en-US",
+        { minimumFractionDigits: 2 }
+      )}`;
       select.appendChild(option);
     });
   } else if (toType === "external") {
@@ -36,9 +40,7 @@ function populateToAccounts() {
   }
 }
 
-
 document.getElementById("transferDate").valueAsDate = new Date();
-
 
 document
   .getElementById("toType")
@@ -48,7 +50,6 @@ document.getElementById("recurring").addEventListener("change", (e) => {
     ? "block"
     : "none";
 });
-
 
 const transferForm = document.getElementById("transferForm");
 const confirmModal = document.getElementById("confirmModal");
@@ -74,18 +75,19 @@ transferForm.addEventListener("submit", (e) => {
     return;
   }
 
-  
   document.getElementById("confirmFrom").textContent = fromAccount.name;
   document.getElementById("confirmTo").textContent = toAccount.name;
-  document.getElementById("confirmAmount").textContent =
-    `$${amount.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
+  document.getElementById(
+    "confirmAmount"
+  ).textContent = `$${amount.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+  })}`;
   document.getElementById("confirmDate").textContent = new Date(
-    date,
+    date
   ).toLocaleDateString();
 
   confirmModal.style.display = "block";
 
-  
   window.pendingTransfer = {
     fromAccountId,
     toAccountId,
@@ -95,21 +97,18 @@ transferForm.addEventListener("submit", (e) => {
   };
 });
 
-
 document.getElementById("confirmTransfer").addEventListener("click", () => {
   const transfer = window.pendingTransfer;
   const fromAccount = currentUser.accounts.find(
-    (a) => a.id === transfer.fromAccountId,
+    (a) => a.id === transfer.fromAccountId
   );
   const toAccount = currentUser.accounts.find(
-    (a) => a.id === transfer.toAccountId,
+    (a) => a.id === transfer.toAccountId
   );
 
-  
   fromAccount.balance -= transfer.amount;
   toAccount.balance += transfer.amount;
 
-  
   if (!currentUser.transactions) {
     currentUser.transactions = [];
   }
@@ -132,7 +131,6 @@ document.getElementById("confirmTransfer").addEventListener("click", () => {
   location.reload();
 });
 
-
 document.getElementById("closeConfirm").addEventListener("click", () => {
   confirmModal.style.display = "none";
 });
@@ -141,12 +139,10 @@ document.getElementById("cancelConfirm").addEventListener("click", () => {
   confirmModal.style.display = "none";
 });
 
-
 document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.removeItem("currentUser");
   window.location.href = "index.html";
 });
-
 
 const menuToggle = document.getElementById("menuToggle");
 const sidebar = document.querySelector(".sidebar");
@@ -154,7 +150,6 @@ const sidebar = document.querySelector(".sidebar");
 menuToggle.addEventListener("click", () => {
   sidebar.classList.toggle("active");
 });
-
 
 populateFromAccounts();
 populateToAccounts();
