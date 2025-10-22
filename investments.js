@@ -1,25 +1,44 @@
-const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-if (!currentUser) window.location.href = "login.html"
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+if (!currentUser) window.location.href = "login.html";
 
 if (!currentUser.investments) {
   currentUser.investments = [
-    { symbol: "AAPL", name: "Apple Inc.", quantity: 10, purchasePrice: 140, currentPrice: 150 },
-    { symbol: "MSFT", name: "Microsoft", quantity: 5, purchasePrice: 300, currentPrice: 320 },
-  ]
+    {
+      symbol: "AAPL",
+      name: "Apple Inc.",
+      quantity: 10,
+      purchasePrice: 140,
+      currentPrice: 150,
+    },
+    {
+      symbol: "MSFT",
+      name: "Microsoft",
+      quantity: 5,
+      purchasePrice: 300,
+      currentPrice: 320,
+    },
+  ];
 }
 
 function updatePortfolio() {
-  const totalValue = currentUser.investments.reduce((sum, inv) => sum + inv.quantity * inv.currentPrice, 0)
-  const totalCost = currentUser.investments.reduce((sum, inv) => sum + inv.quantity * inv.purchasePrice, 0)
-  const gainLoss = totalValue - totalCost
+  const totalValue = currentUser.investments.reduce(
+    (sum, inv) => sum + inv.quantity * inv.currentPrice,
+    0,
+  );
+  const totalCost = currentUser.investments.reduce(
+    (sum, inv) => sum + inv.quantity * inv.purchasePrice,
+    0,
+  );
+  const gainLoss = totalValue - totalCost;
 
   document.getElementById("portfolioValue").textContent =
-    `$${totalValue.toLocaleString("en-US", { minimumFractionDigits: 2 })}`
+    `$${totalValue.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
   document.getElementById("gainLoss").textContent =
-    `${gainLoss >= 0 ? "+" : ""}$${gainLoss.toLocaleString("en-US", { minimumFractionDigits: 2 })}`
-  document.getElementById("holdingsCount").textContent = currentUser.investments.length
+    `${gainLoss >= 0 ? "+" : ""}$${gainLoss.toLocaleString("en-US", { minimumFractionDigits: 2 })}`;
+  document.getElementById("holdingsCount").textContent =
+    currentUser.investments.length;
 
-  const holdingsBody = document.getElementById("holdingsBody")
+  const holdingsBody = document.getElementById("holdingsBody");
   holdingsBody.innerHTML = currentUser.investments
     .map(
       (inv) => `
@@ -36,31 +55,31 @@ function updatePortfolio() {
     </tr>
   `,
     )
-    .join("")
+    .join("");
 }
 
-const buyModal = document.getElementById("buyModal")
+const buyModal = document.getElementById("buyModal");
 document.getElementById("buyBtn").addEventListener("click", () => {
-  buyModal.style.display = "block"
-})
+  buyModal.style.display = "block";
+});
 
 document.getElementById("closeBuy").addEventListener("click", () => {
-  buyModal.style.display = "none"
-})
+  buyModal.style.display = "none";
+});
 
 document.getElementById("cancelBuy").addEventListener("click", () => {
-  buyModal.style.display = "none"
-})
+  buyModal.style.display = "none";
+});
 
 document.getElementById("buyForm").addEventListener("submit", (e) => {
-  e.preventDefault()
-  const symbol = document.getElementById("symbol").value.toUpperCase()
-  const quantity = Number.parseInt(document.getElementById("quantity").value)
-  const price = Number.parseFloat(document.getElementById("price").value)
+  e.preventDefault();
+  const symbol = document.getElementById("symbol").value.toUpperCase();
+  const quantity = Number.parseInt(document.getElementById("quantity").value);
+  const price = Number.parseFloat(document.getElementById("price").value);
 
-  const existing = currentUser.investments.find((i) => i.symbol === symbol)
+  const existing = currentUser.investments.find((i) => i.symbol === symbol);
   if (existing) {
-    existing.quantity += quantity
+    existing.quantity += quantity;
   } else {
     currentUser.investments.push({
       symbol,
@@ -68,31 +87,33 @@ document.getElementById("buyForm").addEventListener("submit", (e) => {
       quantity,
       purchasePrice: price,
       currentPrice: price,
-    })
+    });
   }
 
-  localStorage.setItem("currentUser", JSON.stringify(currentUser))
-  updatePortfolio()
-  buyModal.style.display = "none"
-  document.getElementById("buyForm").reset()
-})
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  updatePortfolio();
+  buyModal.style.display = "none";
+  document.getElementById("buyForm").reset();
+});
 
 function sellInvestment(symbol) {
-  const inv = currentUser.investments.find((i) => i.symbol === symbol)
+  const inv = currentUser.investments.find((i) => i.symbol === symbol);
   if (inv && confirm(`Sell ${inv.quantity} shares of ${symbol}?`)) {
-    currentUser.investments = currentUser.investments.filter((i) => i.symbol !== symbol)
-    localStorage.setItem("currentUser", JSON.stringify(currentUser))
-    updatePortfolio()
+    currentUser.investments = currentUser.investments.filter(
+      (i) => i.symbol !== symbol,
+    );
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    updatePortfolio();
   }
 }
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
-  localStorage.removeItem("currentUser")
-  window.location.href = "index.html"
-})
+  localStorage.removeItem("currentUser");
+  window.location.href = "index.html";
+});
 
 document.getElementById("menuToggle").addEventListener("click", () => {
-  document.querySelector(".sidebar").classList.toggle("active")
-})
+  document.querySelector(".sidebar").classList.toggle("active");
+});
 
-updatePortfolio()
+updatePortfolio();
