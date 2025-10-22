@@ -1,4 +1,3 @@
-
 const tags = document.querySelectorAll(".tag");
 tags.forEach((tag) => {
   tag.addEventListener("click", function () {
@@ -6,7 +5,6 @@ tags.forEach((tag) => {
     this.classList.add("active");
   });
 });
-
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -21,10 +19,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-
 const navMenu = document.querySelector(".nav-menu");
 const authButtons = document.querySelector(".auth-buttons");
-
 
 window.addEventListener("scroll", () => {
   const sections = document.querySelectorAll("section[id]");
