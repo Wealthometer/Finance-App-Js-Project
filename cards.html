@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards - Prosperix Banking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-page">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo">Prosperix</h1>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><span class="icon">📊</span><span>Dashboard</span></a>
+            <a href="accounts.html" class="nav-item"><span class="icon">💳</span><span>Accounts</span></a>
+            <a href="transfers.html" class="nav-item"><span class="icon">💸</span><span>Transfers</span></a>
+            <a href="investments.html" class="nav-item"><span class="icon">📈</span><span>Investments</span></a>
+            <a href="loans.html" class="nav-item"><span class="icon">🏦</span><span>Loans</span></a>
+            <a href="cards.html" class="nav-item active"><span class="icon">🎫</span><span>Cards</span></a>
+            <a href="settings.html" class="nav-item"><span class="icon">⚙️</span><span>Settings</span></a>
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="top-bar">
+            <div class="search-bar"><input type="text" placeholder="Search cards..."></div>
+            <div class="top-bar-right">
+                <button class="notification-btn">🔔</button>
+                <div class="user-profile">
+                    <div class="avatar">JD</div>
+                    <div class="user-info">
+                        <p class="user-name">John Doe</p>
+                        <p class="user-email">john@example.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-container">
+            <section class="welcome-section">
+                <h1>Your Cards</h1>
+                <p>Manage your debit and credit cards</p>
+            </section>
+
+            <section class="quick-actions">
+                <h2>Card Actions</h2>
+                <div class="actions-grid">
+                    <button class="action-btn" id="orderCardBtn">
+                        <span class="action-icon">📮</span>
+                        <span>Order New Card</span>
+                    </button>
+                    <button class="action-btn">
+                        <span class="action-icon">🔒</span>
+                        <span>Lock/Unlock</span>
+                    </button>
+                    <button class="action-btn">
+                        <span class="action-icon">🔑</span>
+                        <span>Change PIN</span>
+                    </button>
+                    <button class="action-btn">
+                        <span class="action-icon">⚙️</span>
+                        <span>Card Settings</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="cards-display">
+                <h2>Your Cards</h2>
+                <div class="cards-grid" id="cardsGrid">
+                    <!-- Cards will be displayed here -->
+                </div>
+            </section>
+
+            <section class="recent-transactions">
+                <h2>Card Transactions</h2>
+                <div class="transactions-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Merchant</th>
+                                <th>Card</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cardTransactionsBody">
+                            <tr>
+                                <td>Dec 15, 2024</td>
+                                <td>Amazon</td>
+                                <td>****1234</td>
+                                <td class="amount negative">-$89.99</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="orderCardModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Order New Card</h2>
+                <button class="close-btn" id="closeOrder">&times;</button>
+            </div>
+            <form id="orderCardForm" class="modal-form">
+                <div class="form-group">
+                    <label for="cardType">Card Type</label>
+                    <select id="cardType" required>
+                        <option value="">Select Card Type</option>
+                        <option value="debit">Debit Card</option>
+                        <option value="credit">Credit Card</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cardDesign">Card Design</label>
+                    <select id="cardDesign" required>
+                        <option value="">Select Design</option>
+                        <option value="classic">Classic</option>
+                        <option value="premium">Premium</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryAddress">Delivery Address</label>
+                    <textarea id="deliveryAddress" required placeholder="Enter your delivery address"></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="btn btn-secondary" id="cancelOrder">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Order Card</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="cards.js"></script>
+</body>
+</html>
