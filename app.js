@@ -1,4 +1,4 @@
-// Tag selection functionality
+
 const tags = document.querySelectorAll(".tag");
 tags.forEach((tag) => {
   tag.addEventListener("click", function () {
@@ -7,7 +7,7 @@ tags.forEach((tag) => {
   });
 });
 
-// Smooth scrolling for navigation links
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -21,11 +21,11 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Mobile menu toggle (if needed)
+
 const navMenu = document.querySelector(".nav-menu");
 const authButtons = document.querySelector(".auth-buttons");
 
-// Add active state to current nav item
+
 window.addEventListener("scroll", () => {
   const sections = document.querySelectorAll("section[id]");
   let current = "";
