@@ -1,12 +1,10 @@
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 if (!currentUser) window.location.href = "login.html";
 
-
 document.getElementById("firstName").value = currentUser.firstName;
 document.getElementById("lastName").value = currentUser.lastName;
 document.getElementById("email").value = currentUser.email;
 document.getElementById("phone").value = currentUser.phone;
-
 
 document.getElementById("profileForm").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -18,7 +16,6 @@ document.getElementById("profileForm").addEventListener("submit", (e) => {
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
   alert("Profile updated successfully!");
 });
-
 
 const passwordModal = document.getElementById("passwordModal");
 document.getElementById("changePasswordBtn").addEventListener("click", () => {
@@ -56,12 +53,10 @@ document.getElementById("passwordForm").addEventListener("submit", (e) => {
   alert("Password updated successfully!");
 });
 
-
 document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.removeItem("currentUser");
   window.location.href = "index.html";
 });
-
 
 document.getElementById("menuToggle").addEventListener("click", () => {
   document.querySelector(".sidebar").classList.toggle("active");
