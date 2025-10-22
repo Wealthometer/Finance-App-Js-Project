@@ -1,4 +1,4 @@
-// Smooth scrolling for navigation links
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -9,7 +9,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Get Started button functionality
+
 document.querySelectorAll(".btn-primary").forEach((btn) => {
   btn.addEventListener("click", function (e) {
     if (this.textContent.includes("Get Started")) {
@@ -19,13 +19,13 @@ document.querySelectorAll(".btn-primary").forEach((btn) => {
   });
 });
 
-// Form validation
+
 function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
 
-// Email input handling
+
 document.querySelectorAll('.form-input[type="email"]').forEach((input) => {
   input.addEventListener("blur", function () {
     if (this.value && !validateEmail(this.value)) {
