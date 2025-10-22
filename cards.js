@@ -1,12 +1,20 @@
-const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-if (!currentUser) window.location.href = "login.html"
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+if (!currentUser) window.location.href = "login.html";
 
 if (!currentUser.cards) {
-  currentUser.cards = [{ id: "CARD001", type: "Debit", lastFour: "1234", balance: 5000, status: "Active" }]
+  currentUser.cards = [
+    {
+      id: "CARD001",
+      type: "Debit",
+      lastFour: "1234",
+      balance: 5000,
+      status: "Active",
+    },
+  ];
 }
 
 function displayCards() {
-  const cardsGrid = document.getElementById("cardsGrid")
+  const cardsGrid = document.getElementById("cardsGrid");
   cardsGrid.innerHTML = currentUser.cards
     .map(
       (card) => `
@@ -24,26 +32,26 @@ function displayCards() {
     </div>
   `,
     )
-    .join("")
+    .join("");
 }
 
-const orderCardModal = document.getElementById("orderCardModal")
+const orderCardModal = document.getElementById("orderCardModal");
 document.getElementById("orderCardBtn").addEventListener("click", () => {
-  orderCardModal.style.display = "block"
-})
+  orderCardModal.style.display = "block";
+});
 
 document.getElementById("closeOrder").addEventListener("click", () => {
-  orderCardModal.style.display = "none"
-})
+  orderCardModal.style.display = "none";
+});
 
 document.getElementById("cancelOrder").addEventListener("click", () => {
-  orderCardModal.style.display = "none"
-})
+  orderCardModal.style.display = "none";
+});
 
 document.getElementById("orderCardForm").addEventListener("submit", (e) => {
-  e.preventDefault()
-  const cardType = document.getElementById("cardType").value
-  const cardDesign = document.getElementById("cardDesign").value
+  e.preventDefault();
+  const cardType = document.getElementById("cardType").value;
+  const cardDesign = document.getElementById("cardDesign").value;
 
   const newCard = {
     id: `CARD${Date.now()}`,
@@ -53,23 +61,23 @@ document.getElementById("orderCardForm").addEventListener("submit", (e) => {
       .padStart(4, "0"),
     balance: 0,
     status: "Pending",
-  }
+  };
 
-  currentUser.cards.push(newCard)
-  localStorage.setItem("currentUser", JSON.stringify(currentUser))
-  displayCards()
-  orderCardModal.style.display = "none"
-  document.getElementById("orderCardForm").reset()
-  alert("Card order placed! It will arrive in 7-10 business days.")
-})
+  currentUser.cards.push(newCard);
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  displayCards();
+  orderCardModal.style.display = "none";
+  document.getElementById("orderCardForm").reset();
+  alert("Card order placed! It will arrive in 7-10 business days.");
+});
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
-  localStorage.removeItem("currentUser")
-  window.location.href = "index.html"
-})
+  localStorage.removeItem("currentUser");
+  window.location.href = "index.html";
+});
 
 document.getElementById("menuToggle").addEventListener("click", () => {
-  document.querySelector(".sidebar").classList.toggle("active")
-})
+  document.querySelector(".sidebar").classList.toggle("active");
+});
 
-displayCards()
+displayCards();
