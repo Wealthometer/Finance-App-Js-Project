@@ -1,165 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings - Prosperix Banking</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="dashboard.css">
-</head>
-<body class="dashboard-page">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body class="dashboard-page">
     <aside class="sidebar">
-        <div class="sidebar-header">
-            <h1 class="logo">Prosperix</h1>
-            <button class="menu-toggle" id="menuToggle">☰</button>
-        </div>
-        <nav class="sidebar-nav">
-            <a href="dashboard.html" class="nav-item"><span class="icon">📊</span><span>Dashboard</span></a>
-            <a href="accounts.html" class="nav-item"><span class="icon">💳</span><span>Accounts</span></a>
-            <a href="transfers.html" class="nav-item"><span class="icon">💸</span><span>Transfers</span></a>
-            <a href="investments.html" class="nav-item"><span class="icon">📈</span><span>Investments</span></a>
-            <a href="loans.html" class="nav-item"><span class="icon">🏦</span><span>Loans</span></a>
-            <a href="cards.html" class="nav-item"><span class="icon">🎫</span><span>Cards</span></a>
-            <a href="settings.html" class="nav-item active"><span class="icon">⚙️</span><span>Settings</span></a>
-        </nav>
-        <div class="sidebar-footer">
-            <button id="logoutBtn" class="btn btn-secondary">Logout</button>
-        </div>
+      <div class="sidebar-header">
+        <h1 class="logo">Prosperix</h1>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item"
+          ><span class="icon">📊</span><span>Dashboard</span></a
+        >
+        <a href="accounts.html" class="nav-item"
+          ><span class="icon">💳</span><span>Accounts</span></a
+        >
+        <a href="transfers.html" class="nav-item"
+          ><span class="icon">💸</span><span>Transfers</span></a
+        >
+        <a href="investments.html" class="nav-item"
+          ><span class="icon">📈</span><span>Investments</span></a
+        >
+        <a href="loans.html" class="nav-item"
+          ><span class="icon">🏦</span><span>Loans</span></a
+        >
+        <a href="cards.html" class="nav-item"
+          ><span class="icon">🎫</span><span>Cards</span></a
+        >
+        <a href="settings.html" class="nav-item active"
+          ><span class="icon">⚙️</span><span>Settings</span></a
+        >
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+      </div>
     </aside>
 
     <main class="main-content">
-        <div class="top-bar">
-            <div class="search-bar"><input type="text" placeholder="Search settings..."></div>
-            <div class="top-bar-right">
-                <button class="notification-btn">🔔</button>
-                <div class="user-profile">
-                    <div class="avatar">JD</div>
-                    <div class="user-info">
-                        <p class="user-name">John Doe</p>
-                        <p class="user-email">john@example.com</p>
-                    </div>
+      <div class="top-bar">
+        <div class="search-bar">
+          <input type="text" placeholder="Search settings..." />
+        </div>
+        <div class="top-bar-right">
+          <button class="notification-btn">🔔</button>
+          <div class="user-profile">
+            <div class="avatar">JD</div>
+            <div class="user-info">
+              <p class="user-name">John Doe</p>
+              <p class="user-email">john@example.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-container">
+        <section class="welcome-section">
+          <h1>Settings</h1>
+          <p>Manage your account preferences and security</p>
+        </section>
+
+        <div class="settings-grid">
+          <section class="settings-card">
+            <h2>Profile Information</h2>
+            <form id="profileForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" required />
                 </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" required />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Save Changes
+              </button>
+            </form>
+          </section>
+
+          <section class="settings-card">
+            <h2>Security Settings</h2>
+            <div class="settings-item">
+              <h3>Change Password</h3>
+              <button class="btn btn-secondary" id="changePasswordBtn">
+                Change Password
+              </button>
             </div>
-        </div>
-
-        <div class="dashboard-container">
-            <section class="welcome-section">
-                <h1>Settings</h1>
-                <p>Manage your account preferences and security</p>
-            </section>
-
-            <div class="settings-grid">
-                <section class="settings-card">
-                    <h2>Profile Information</h2>
-                    <form id="profileForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name</label>
-                                <input type="text" id="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name</label>
-                                <input type="text" id="lastName" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </form>
-                </section>
-
-                <section class="settings-card">
-                    <h2>Security Settings</h2>
-                    <div class="settings-item">
-                        <h3>Change Password</h3>
-                        <button class="btn btn-secondary" id="changePasswordBtn">Change Password</button>
-                    </div>
-                    <div class="settings-item">
-                        <h3>Two-Factor Authentication</h3>
-                        <label class="toggle">
-                            <input type="checkbox" id="twoFactorToggle">
-                            <span>Enable 2FA</span>
-                        </label>
-                    </div>
-                    <div class="settings-item">
-                        <h3>Login Activity</h3>
-                        <button class="btn btn-secondary">View Login History</button>
-                    </div>
-                </section>
-
-                <section class="settings-card">
-                    <h2>Notification Preferences</h2>
-                    <div class="settings-item">
-                        <label class="toggle">
-                            <input type="checkbox" id="emailNotifications" checked>
-                            <span>Email Notifications</span>
-                        </label>
-                    </div>
-                    <div class="settings-item">
-                        <label class="toggle">
-                            <input type="checkbox" id="smsNotifications" checked>
-                            <span>SMS Notifications</span>
-                        </label>
-                    </div>
-                    <div class="settings-item">
-                        <label class="toggle">
-                            <input type="checkbox" id="pushNotifications">
-                            <span>Push Notifications</span>
-                        </label>
-                    </div>
-                </section>
-
-                <section class="settings-card">
-                    <h2>Privacy & Data</h2>
-                    <div class="settings-item">
-                        <h3>Data Download</h3>
-                        <p>Download a copy of your data</p>
-                        <button class="btn btn-secondary">Download Data</button>
-                    </div>
-                    <div class="settings-item">
-                        <h3>Delete Account</h3>
-                        <p>Permanently delete your account and data</p>
-                        <button class="btn btn-secondary" style="background: #ff6b6b; color: white;">Delete Account</button>
-                    </div>
-                </section>
+            <div class="settings-item">
+              <h3>Two-Factor Authentication</h3>
+              <label class="toggle">
+                <input type="checkbox" id="twoFactorToggle" />
+                <span>Enable 2FA</span>
+              </label>
             </div>
+            <div class="settings-item">
+              <h3>Login Activity</h3>
+              <button class="btn btn-secondary">View Login History</button>
+            </div>
+          </section>
+
+          <section class="settings-card">
+            <h2>Notification Preferences</h2>
+            <div class="settings-item">
+              <label class="toggle">
+                <input type="checkbox" id="emailNotifications" checked />
+                <span>Email Notifications</span>
+              </label>
+            </div>
+            <div class="settings-item">
+              <label class="toggle">
+                <input type="checkbox" id="smsNotifications" checked />
+                <span>SMS Notifications</span>
+              </label>
+            </div>
+            <div class="settings-item">
+              <label class="toggle">
+                <input type="checkbox" id="pushNotifications" />
+                <span>Push Notifications</span>
+              </label>
+            </div>
+          </section>
+
+          <section class="settings-card">
+            <h2>Privacy & Data</h2>
+            <div class="settings-item">
+              <h3>Data Download</h3>
+              <p>Download a copy of your data</p>
+              <button class="btn btn-secondary">Download Data</button>
+            </div>
+            <div class="settings-item">
+              <h3>Delete Account</h3>
+              <p>Permanently delete your account and data</p>
+              <button
+                class="btn btn-secondary"
+                style="background: #ff6b6b; color: white"
+              >
+                Delete Account
+              </button>
+            </div>
+          </section>
         </div>
+      </div>
     </main>
 
     <div id="passwordModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Change Password</h2>
-                <button class="close-btn" id="closePassword">&times;</button>
-            </div>
-            <form id="passwordForm" class="modal-form">
-                <div class="form-group">
-                    <label for="currentPassword">Current Password</label>
-                    <input type="password" id="currentPassword" required>
-                </div>
-                <div class="form-group">
-                    <label for="newPassword">New Password</label>
-                    <input type="password" id="newPassword" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirmNewPassword">Confirm Password</label>
-                    <input type="password" id="confirmNewPassword" required>
-                </div>
-                <div class="modal-buttons">
-                    <button type="button" class="btn btn-secondary" id="cancelPassword">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Update Password</button>
-                </div>
-            </form>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Change Password</h2>
+          <button class="close-btn" id="closePassword">&times;</button>
         </div>
+        <form id="passwordForm" class="modal-form">
+          <div class="form-group">
+            <label for="currentPassword">Current Password</label>
+            <input type="password" id="currentPassword" required />
+          </div>
+          <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <input type="password" id="newPassword" required />
+          </div>
+          <div class="form-group">
+            <label for="confirmNewPassword">Confirm Password</label>
+            <input type="password" id="confirmNewPassword" required />
+          </div>
+          <div class="modal-buttons">
+            <button type="button" class="btn btn-secondary" id="cancelPassword">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Update Password
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <script src="script.js"></script>
     <script src="settings.js"></script>
-</body>
+  </body>
 </html>
