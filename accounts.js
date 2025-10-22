@@ -18,7 +18,7 @@ function populateAccounts() {
         minimumFractionDigits: 2,
       })}</p>
     </div>
-  `
+  `,
     )
     .join("");
 }
@@ -26,17 +26,15 @@ function populateAccounts() {
 function selectAccount(accountId) {
   const account = currentUser.accounts.find((a) => a.id === accountId);
   if (account) {
-    document.getElementById(
-      "accountHolder"
-    ).textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+    document.getElementById("accountHolder").textContent =
+      `${currentUser.firstName} ${currentUser.lastName}`;
     document.getElementById("accountNumber").textContent =
       account.accountNumber;
     document.getElementById("accountType").textContent = account.type;
-    document.getElementById(
-      "currentBalance"
-    ).textContent = `$${account.balance.toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-    })}`;
+    document.getElementById("currentBalance").textContent =
+      `$${account.balance.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+      })}`;
   }
 }
 
@@ -70,7 +68,7 @@ newAccountForm.addEventListener("submit", (e) => {
   const accountName = document.getElementById("accountName").value;
   const accountType = document.getElementById("accountType").value;
   const initialDeposit = Number.parseFloat(
-    document.getElementById("initialDeposit").value
+    document.getElementById("initialDeposit").value,
   );
 
   const newAccount = {
