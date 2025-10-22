@@ -1,4 +1,4 @@
-// Check if user is logged in
+
 function checkAuth() {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"))
   if (!currentUser) {
