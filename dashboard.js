@@ -12,7 +12,7 @@ function checkAuth() {
 const currentUser = checkAuth()
 
 if (currentUser) {
-  // Update user info
+  
   document.getElementById("userName").textContent = `${currentUser.firstName} ${currentUser.lastName}`
   document.getElementById("userEmail").textContent = currentUser.email
   document.getElementById("firstName").textContent = currentUser.firstName
