@@ -1,237 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Prosperix Banking</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="dashboard.css">
-</head>
-<body class="dashboard-page">
-    
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body class="dashboard-page">
     <aside class="sidebar">
-        <div class="sidebar-header">
-            <h1 class="logo">Prosperix</h1>
-            <button class="menu-toggle" id="menuToggle">☰</button>
-        </div>
+      <div class="sidebar-header">
+        <h1 class="logo">Prosperix</h1>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+      </div>
 
-        <nav class="sidebar-nav">
-            <a href="dashboard.html" class="nav-item active">
-                <span class="icon">📊</span>
-                <span>Dashboard</span>
-            </a>
-            <a href="accounts.html" class="nav-item">
-                <span class="icon">💳</span>
-                <span>Accounts</span>
-            </a>
-            <a href="transfers.html" class="nav-item">
-                <span class="icon">💸</span>
-                <span>Transfers</span>
-            </a>
-            <a href="investments.html" class="nav-item">
-                <span class="icon">📈</span>
-                <span>Investments</span>
-            </a>
-            <a href="loans.html" class="nav-item">
-                <span class="icon">🏦</span>
-                <span>Loans</span>
-            </a>
-            <a href="cards.html" class="nav-item">
-                <span class="icon">🎫</span>
-                <span>Cards</span>
-            </a>
-            <a href="settings.html" class="nav-item">
-                <span class="icon">⚙️</span>
-                <span>Settings</span>
-            </a>
-        </nav>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item active">
+          <span class="icon">📊</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="accounts.html" class="nav-item">
+          <span class="icon">💳</span>
+          <span>Accounts</span>
+        </a>
+        <a href="transfers.html" class="nav-item">
+          <span class="icon">💸</span>
+          <span>Transfers</span>
+        </a>
+        <a href="investments.html" class="nav-item">
+          <span class="icon">📈</span>
+          <span>Investments</span>
+        </a>
+        <a href="loans.html" class="nav-item">
+          <span class="icon">🏦</span>
+          <span>Loans</span>
+        </a>
+        <a href="cards.html" class="nav-item">
+          <span class="icon">🎫</span>
+          <span>Cards</span>
+        </a>
+        <a href="settings.html" class="nav-item">
+          <span class="icon">⚙️</span>
+          <span>Settings</span>
+        </a>
+      </nav>
 
-        <div class="sidebar-footer">
-            <button id="logoutBtn" class="btn btn-secondary">Logout</button>
-        </div>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+      </div>
     </aside>
 
-    
     <main class="main-content">
-        
-        <div class="top-bar">
-            <div class="search-bar">
-                <input type="text" placeholder="Search transactions...">
-            </div>
-            <div class="top-bar-right">
-                <button class="notification-btn">🔔</button>
-                <div class="user-profile">
-                    <div class="avatar">JD</div>
-                    <div class="user-info">
-                        <p class="user-name" id="userName">John Doe</p>
-                        <p class="user-email" id="userEmail">john@example.com</p>
-                    </div>
-                </div>
-            </div>
+      <div class="top-bar">
+        <div class="search-bar">
+          <input type="text" placeholder="Search transactions..." />
         </div>
-
-        
-        <div class="dashboard-container">
-            
-            <section class="welcome-section">
-                <h1>Welcome back, <span id="firstName">John</span>!</h1>
-                <p>Here's your financial overview</p>
-            </section>
-
-            
-            <section class="balance-cards">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3>Total Balance</h3>
-                        <span class="card-icon">💰</span>
-                    </div>
-                    <p class="card-amount" id="totalBalance">$20,000.00</p>
-                    <p class="card-subtitle">Across all accounts</p>
-                </div>
-
-                <div class="card card-secondary">
-                    <div class="card-header">
-                        <h3>Monthly Spending</h3>
-                        <span class="card-icon">📊</span>
-                    </div>
-                    <p class="card-amount" id="monthlySpending">$2,450.00</p>
-                    <p class="card-subtitle">This month</p>
-                </div>
-
-                <div class="card card-accent">
-                    <div class="card-header">
-                        <h3>Investments</h3>
-                        <span class="card-icon">📈</span>
-                    </div>
-                    <p class="card-amount" id="investmentTotal">$5,000.00</p>
-                    <p class="card-subtitle">Portfolio value</p>
-                </div>
-
-                <div class="card card-warning">
-                    <div class="card-header">
-                        <h3>Savings Goal</h3>
-                        <span class="card-icon">🎯</span>
-                    </div>
-                    <p class="card-amount" id="savingsGoal">$15,000.00</p>
-                    <p class="card-subtitle">Target reached</p>
-                </div>
-            </section>
-
-            
-            <section class="quick-actions">
-                <h2>Quick Actions</h2>
-                <div class="actions-grid">
-                    <button class="action-btn" onclick="window.location.href='transfers.html'">
-                        <span class="action-icon">💸</span>
-                        <span>Send Money</span>
-                    </button>
-                    <button class="action-btn" onclick="window.location.href='accounts.html'">
-                        <span class="action-icon">💳</span>
-                        <span>View Accounts</span>
-                    </button>
-                    <button class="action-btn" onclick="window.location.href='investments.html'">
-                        <span class="action-icon">📈</span>
-                        <span>Invest</span>
-                    </button>
-                    <button class="action-btn" onclick="window.location.href='loans.html'">
-                        <span class="action-icon">🏦</span>
-                        <span>Apply Loan</span>
-                    </button>
-                </div>
-            </section>
-
-            
-            <section class="charts-section">
-                <div class="chart-container">
-                    <h2>Spending by Category</h2>
-                    <div class="chart-placeholder">
-                        <canvas id="spendingChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="chart-container">
-                    <h2>Account Balance Trend</h2>
-                    <div class="chart-placeholder">
-                        <canvas id="balanceChart"></canvas>
-                    </div>
-                </div>
-            </section>
-
-            
-            <section class="recent-transactions">
-                <div class="section-header-inline">
-                    <h2>Recent Transactions</h2>
-                    <a href="#" class="view-all">View All →</a>
-                </div>
-
-                <div class="transactions-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Description</th>
-                                <th>Category</th>
-                                <th>Date</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="transactionsBody">
-                            <tr>
-                                <td>
-                                    <div class="transaction-info">
-                                        <span class="transaction-icon">🛒</span>
-                                        <span>Amazon Purchase</span>
-                                    </div>
-                                </td>
-                                <td>Shopping</td>
-                                <td>Dec 15, 2024</td>
-                                <td class="amount negative">-$89.99</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="transaction-info">
-                                        <span class="transaction-icon">💼</span>
-                                        <span>Salary Deposit</span>
-                                    </div>
-                                </td>
-                                <td>Income</td>
-                                <td>Dec 14, 2024</td>
-                                <td class="amount positive">+$3,500.00</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="transaction-info">
-                                        <span class="transaction-icon">☕</span>
-                                        <span>Coffee Shop</span>
-                                    </div>
-                                </td>
-                                <td>Food & Drink</td>
-                                <td>Dec 13, 2024</td>
-                                <td class="amount negative">-$5.50</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="transaction-info">
-                                        <span class="transaction-icon">🎬</span>
-                                        <span>Netflix Subscription</span>
-                                    </div>
-                                </td>
-                                <td>Entertainment</td>
-                                <td>Dec 12, 2024</td>
-                                <td class="amount negative">-$15.99</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+        <div class="top-bar-right">
+          <button class="notification-btn">🔔</button>
+          <div class="user-profile">
+            <div class="avatar">JD</div>
+            <div class="user-info">
+              <p class="user-name" id="userName">John Doe</p>
+              <p class="user-email" id="userEmail">john@example.com</p>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="dashboard-container">
+        <section class="welcome-section">
+          <h1>Welcome back, <span id="firstName">John</span>!</h1>
+          <p>Here's your financial overview</p>
+        </section>
+
+        <section class="balance-cards">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3>Total Balance</h3>
+              <span class="card-icon">💰</span>
+            </div>
+            <p class="card-amount" id="totalBalance">$20,000.00</p>
+            <p class="card-subtitle">Across all accounts</p>
+          </div>
+
+          <div class="card card-secondary">
+            <div class="card-header">
+              <h3>Monthly Spending</h3>
+              <span class="card-icon">📊</span>
+            </div>
+            <p class="card-amount" id="monthlySpending">$2,450.00</p>
+            <p class="card-subtitle">This month</p>
+          </div>
+
+          <div class="card card-accent">
+            <div class="card-header">
+              <h3>Investments</h3>
+              <span class="card-icon">📈</span>
+            </div>
+            <p class="card-amount" id="investmentTotal">$5,000.00</p>
+            <p class="card-subtitle">Portfolio value</p>
+          </div>
+
+          <div class="card card-warning">
+            <div class="card-header">
+              <h3>Savings Goal</h3>
+              <span class="card-icon">🎯</span>
+            </div>
+            <p class="card-amount" id="savingsGoal">$15,000.00</p>
+            <p class="card-subtitle">Target reached</p>
+          </div>
+        </section>
+
+        <section class="quick-actions">
+          <h2>Quick Actions</h2>
+          <div class="actions-grid">
+            <button
+              class="action-btn"
+              onclick="window.location.href='transfers.html'"
+            >
+              <span class="action-icon">💸</span>
+              <span>Send Money</span>
+            </button>
+            <button
+              class="action-btn"
+              onclick="window.location.href='accounts.html'"
+            >
+              <span class="action-icon">💳</span>
+              <span>View Accounts</span>
+            </button>
+            <button
+              class="action-btn"
+              onclick="window.location.href='investments.html'"
+            >
+              <span class="action-icon">📈</span>
+              <span>Invest</span>
+            </button>
+            <button
+              class="action-btn"
+              onclick="window.location.href='loans.html'"
+            >
+              <span class="action-icon">🏦</span>
+              <span>Apply Loan</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="charts-section">
+          <div class="chart-container">
+            <h2>Spending by Category</h2>
+            <div class="chart-placeholder">
+              <canvas id="spendingChart"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <h2>Account Balance Trend</h2>
+            <div class="chart-placeholder">
+              <canvas id="balanceChart"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <section class="recent-transactions">
+          <div class="section-header-inline">
+            <h2>Recent Transactions</h2>
+            <a href="#" class="view-all">View All →</a>
+          </div>
+
+          <div class="transactions-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="transactionsBody">
+                <tr>
+                  <td>
+                    <div class="transaction-info">
+                      <span class="transaction-icon">🛒</span>
+                      <span>Amazon Purchase</span>
+                    </div>
+                  </td>
+                  <td>Shopping</td>
+                  <td>Dec 15, 2024</td>
+                  <td class="amount negative">-$89.99</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="transaction-info">
+                      <span class="transaction-icon">💼</span>
+                      <span>Salary Deposit</span>
+                    </div>
+                  </td>
+                  <td>Income</td>
+                  <td>Dec 14, 2024</td>
+                  <td class="amount positive">+$3,500.00</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="transaction-info">
+                      <span class="transaction-icon">☕</span>
+                      <span>Coffee Shop</span>
+                    </div>
+                  </td>
+                  <td>Food & Drink</td>
+                  <td>Dec 13, 2024</td>
+                  <td class="amount negative">-$5.50</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="transaction-info">
+                      <span class="transaction-icon">🎬</span>
+                      <span>Netflix Subscription</span>
+                    </div>
+                  </td>
+                  <td>Entertainment</td>
+                  <td>Dec 12, 2024</td>
+                  <td class="amount negative">-$15.99</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </main>
 
     <script src="script.js"></script>
     <script src="dashboard.js"></script>
-</body>
+  </body>
 </html>
