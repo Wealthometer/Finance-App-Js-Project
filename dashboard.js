@@ -26,7 +26,7 @@ if (currentUser) {
   document.getElementById("investmentTotal").textContent =
     `$${investmentTotal.toLocaleString("en-US", { minimumFractionDigits: 2 })}`
 
-  // Calculate monthly spending
+  
   const monthlySpending = currentUser.transactions
     .filter((t) => {
       const transDate = new Date(t.date)
