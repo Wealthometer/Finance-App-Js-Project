@@ -5,7 +5,6 @@
   background: #f5f7fa;
 }
 
-
 .sidebar {
   background: white;
   border-right: 1px solid var(--border);
@@ -78,13 +77,11 @@
   border-top: 1px solid var(--border);
 }
 
-
 .main-content {
   grid-column: 2;
   padding: 2rem;
   overflow-y: auto;
 }
-
 
 .top-bar {
   display: flex;
@@ -155,13 +152,11 @@
   color: var(--text-light);
 }
 
-
 .dashboard-container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-
 
 .welcome-section h1 {
   font-size: 2rem;
@@ -171,7 +166,6 @@
 .welcome-section p {
   color: var(--text-light);
 }
-
 
 .balance-cards {
   display: grid;
@@ -193,7 +187,11 @@
 }
 
 .card-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-dark) 100%
+  );
   color: white;
 }
 
@@ -239,7 +237,6 @@
   opacity: 0.8;
 }
 
-
 .quick-actions {
   background: white;
   padding: 2rem;
@@ -282,7 +279,6 @@
   font-size: 2rem;
 }
 
-
 .charts-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -308,7 +304,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 .recent-transactions {
   background: white;
@@ -392,7 +387,6 @@
   background: #fff3cd;
   color: #856404;
 }
-
 
 @media (max-width: 1024px) {
   .balance-cards {
